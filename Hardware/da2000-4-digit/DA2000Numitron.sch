@@ -450,8 +450,6 @@ Wire Wire Line
 Wire Wire Line
 	3200 9150 3300 9150
 Wire Wire Line
-	4600 9150 4700 9150
-Wire Wire Line
 	3900 9150 4000 9150
 Wire Wire Line
 	3600 8750 4300 8750
@@ -459,7 +457,6 @@ Connection ~ 3600 8750
 Wire Wire Line
 	3600 9550 4300 9550
 Connection ~ 3600 9550
-NoConn ~ 4700 9150
 Wire Wire Line
 	1900 9150 1500 9150
 Text Label 1500 9150 0    50   ~ 0
@@ -1569,4 +1566,31 @@ Wire Wire Line
 	2200 9550 2900 9550
 Wire Wire Line
 	2900 9550 2900 9650
+$Comp
+L Connector_Generic:Conn_01x03 J4
+U 1 1 5E5103A1
+P 3050 7200
+F 0 "J4" H 2970 6875 50  0000 C CNN
+F 1 "LED Out" H 2970 6966 50  0000 C CNN
+F 2 "NixieClockMaster:Header_MA03-1" H 3050 7200 50  0001 C CNN
+F 3 "~" H 3050 7200 50  0001 C CNN
+	1    3050 7200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3250 7100 3600 7100
+Wire Wire Line
+	3250 7300 3600 7300
+Text Label 3600 7300 0    50   ~ 0
+GND
+Text Label 3600 7100 0    50   ~ 0
+5V
+Wire Wire Line
+	3250 7200 3600 7200
+Wire Wire Line
+	4600 9150 4900 9150
+Text Label 4900 9150 0    50   ~ 0
+LED_OUT
+Text Label 3600 7200 0    50   ~ 0
+LED_OUT
 $EndSCHEMATC
