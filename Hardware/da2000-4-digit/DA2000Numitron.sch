@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L NixieClockMaster:DA-2000 N1
+L DA2000Numitron-rescue:DA-2000-NixieClockMaster N1
 U 1 1 5D147207
 P 9150 3150
 F 0 "N1" H 9650 3000 60  0000 L CNN
@@ -26,7 +26,7 @@ F 3 "" H 9150 3150 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L NixieClockMaster:DA-2000 N2
+L DA2000Numitron-rescue:DA-2000-NixieClockMaster N2
 U 1 1 5D14C141
 P 11200 3150
 F 0 "N2" H 11700 2850 60  0000 L CNN
@@ -56,7 +56,7 @@ F 3 "~" H 9500 4550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L NixieClockMaster:WeMos_mini U8
+L DA2000Numitron-rescue:WeMos_mini-NixieClockMaster U8
 U 1 1 5D252DF7
 P 2350 2400
 F 0 "U8" H 2350 3037 60  0000 C CNN
@@ -233,7 +233,7 @@ BTN
 Text Label 2100 7400 0    50   ~ 0
 GND
 $Comp
-L NixieClockMaster:DS1307+ U7
+L DA2000Numitron-rescue:DS1307+-NixieClockMaster U7
 U 1 1 5D68AD37
 P 5500 2350
 F 0 "U7" H 5500 2350 50  0000 C CNN
@@ -380,99 +380,99 @@ Wire Wire Line
 $Comp
 L LED:WS2812B NP4
 U 1 1 5D800378
-P 2200 9150
-F 0 "NP4" H 2250 9400 50  0000 L CNN
-F 1 "WS2812B" H 2250 8900 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 2250 8850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 2300 8775 50  0001 L TNN
-	1    2200 9150
+P 1550 9550
+F 0 "NP4" H 1600 9800 50  0000 L CNN
+F 1 "WS2812B" H 1600 9300 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 1600 9250 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1650 9175 50  0001 L TNN
+	1    1550 9550
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B NP3
 U 1 1 5D8005C8
-P 2900 9150
-F 0 "NP3" H 2950 9400 50  0000 L CNN
-F 1 "WS2812B" H 2950 8900 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 2950 8850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3000 8775 50  0001 L TNN
-	1    2900 9150
+P 2250 9550
+F 0 "NP3" H 2300 9800 50  0000 L CNN
+F 1 "WS2812B" H 2300 9300 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 2300 9250 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 2350 9175 50  0001 L TNN
+	1    2250 9550
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B NP2
 U 1 1 5D800685
-P 3600 9150
-F 0 "NP2" H 3650 9400 50  0000 L CNN
-F 1 "WS2812B" H 3650 8900 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3650 8850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3700 8775 50  0001 L TNN
-	1    3600 9150
+P 2950 9550
+F 0 "NP2" H 3000 9800 50  0000 L CNN
+F 1 "WS2812B" H 3000 9300 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3000 9250 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3050 9175 50  0001 L TNN
+	1    2950 9550
 	1    0    0    -1  
 $EndComp
 $Comp
 L LED:WS2812B NP1
 U 1 1 5D8007DB
-P 4300 9150
-F 0 "NP1" H 4350 9400 50  0000 L CNN
-F 1 "WS2812B" H 4350 8900 50  0000 L CNN
-F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 4350 8850 50  0001 L TNN
-F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 4400 8775 50  0001 L TNN
-	1    4300 9150
+P 3650 9550
+F 0 "NP1" H 3700 9800 50  0000 L CNN
+F 1 "WS2812B" H 3700 9300 50  0000 L CNN
+F 2 "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm" H 3700 9250 50  0001 L TNN
+F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3750 9175 50  0001 L TNN
+	1    3650 9550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2200 8750 2200 8850
+	1550 9150 1550 9250
 Wire Wire Line
-	2900 8850 2900 8750
-Connection ~ 2900 8750
+	2250 9250 2250 9150
+Connection ~ 2250 9150
 Wire Wire Line
-	2900 8750 2200 8750
+	2250 9150 1550 9150
 Wire Wire Line
-	3600 8850 3600 8750
+	2950 9250 2950 9150
 Wire Wire Line
-	3600 8750 2900 8750
+	2950 9150 2250 9150
 Wire Wire Line
-	4300 8850 4300 8750
+	3650 9250 3650 9150
 Wire Wire Line
-	2200 9550 2200 9450
+	1550 9950 1550 9850
 Wire Wire Line
-	2900 9450 2900 9550
-Connection ~ 2900 9550
+	2250 9850 2250 9950
+Connection ~ 2250 9950
 Wire Wire Line
-	3600 9450 3600 9550
+	2950 9850 2950 9950
 Wire Wire Line
-	2900 9550 3600 9550
+	2250 9950 2950 9950
 Wire Wire Line
-	4300 9450 4300 9550
+	3650 9850 3650 9950
 Wire Wire Line
-	2500 9150 2600 9150
+	1850 9550 1950 9550
 Wire Wire Line
-	3200 9150 3300 9150
+	2550 9550 2650 9550
 Wire Wire Line
-	3900 9150 4000 9150
+	3250 9550 3350 9550
 Wire Wire Line
-	3600 8750 4300 8750
-Connection ~ 3600 8750
+	2950 9150 3650 9150
+Connection ~ 2950 9150
 Wire Wire Line
-	3600 9550 4300 9550
-Connection ~ 3600 9550
+	2950 9950 3650 9950
+Connection ~ 2950 9950
 Wire Wire Line
-	1900 9150 1500 9150
-Text Label 1500 9150 0    50   ~ 0
+	1250 9550 850  9550
+Text Label 850  9550 0    50   ~ 0
 LED_DATA
 $Comp
 L power:GND #PWR015
 U 1 1 5DC024D0
-P 2900 9650
-F 0 "#PWR015" H 2900 9400 50  0001 C CNN
-F 1 "GND" H 2905 9477 50  0000 C CNN
-F 2 "" H 2900 9650 50  0001 C CNN
-F 3 "" H 2900 9650 50  0001 C CNN
-	1    2900 9650
+P 2250 10050
+F 0 "#PWR015" H 2250 9800 50  0001 C CNN
+F 1 "GND" H 2255 9877 50  0000 C CNN
+F 2 "" H 2250 10050 50  0001 C CNN
+F 3 "" H 2250 10050 50  0001 C CNN
+	1    2250 10050
 	1    0    0    -1  
 $EndComp
-Text Label 3950 8750 0    50   ~ 0
+Text Label 3300 9150 0    50   ~ 0
 5V
 $Comp
 L Connector:USB_B_Mini J2
@@ -527,7 +527,7 @@ Wire Notes Line
 	5950 11150 6000 11150
 Text Notes 1150 4150 0    100  ~ 0
 Connectors
-Text Notes 1150 8550 0    100  ~ 0
+Text Notes 850  8800 0    100  ~ 0
 RGB Back Lights
 Text Notes 900  1000 0    100  ~ 0
 Controller
@@ -835,7 +835,7 @@ Connection ~ 11100 3650
 Text Label 10650 3750 0    50   ~ 0
 DATA1
 $Comp
-L NixieClockMaster:DA-2000 N3
+L DA2000Numitron-rescue:DA-2000-NixieClockMaster N3
 U 1 1 5D8C6621
 P 13250 3150
 F 0 "N3" H 13750 3000 60  0000 L CNN
@@ -997,7 +997,7 @@ Wire Wire Line
 Wire Wire Line
 	14700 2250 12600 2250
 $Comp
-L NixieClockMaster:DA-2000 N4
+L DA2000Numitron-rescue:DA-2000-NixieClockMaster N4
 U 1 1 5D95CF2E
 P 9150 6550
 F 0 "N4" H 9650 6400 60  0000 L CNN
@@ -1350,7 +1350,7 @@ Wire Wire Line
 Wire Wire Line
 	1700 5550 1850 5550
 $Comp
-L NixieClockMaster:PWR_FLAG #FLG0101
+L DA2000Numitron-rescue:PWR_FLAG-NixieClockMaster #FLG0101
 U 1 1 5D88DEC6
 P 1850 5450
 F 0 "#FLG0101" H 1850 5715 50  0000 C CNN
@@ -1403,7 +1403,7 @@ F 3 "" H 15200 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 2100 6700 0    50   ~ 0
-3V3
+PIR_4V7
 Wire Wire Line
 	2850 2050 3300 2050
 Text Label 3300 2050 2    50   ~ 0
@@ -1563,9 +1563,9 @@ F 3 "~" H 10600 8000 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	2200 9550 2900 9550
+	1550 9950 2250 9950
 Wire Wire Line
-	2900 9550 2900 9650
+	2250 9950 2250 10050
 $Comp
 L Connector_Generic:Conn_01x03 J4
 U 1 1 5E5103A1
@@ -1588,9 +1588,61 @@ Text Label 3600 7100 0    50   ~ 0
 Wire Wire Line
 	3250 7200 3600 7200
 Wire Wire Line
-	4600 9150 4900 9150
-Text Label 4900 9150 0    50   ~ 0
+	3950 9550 4250 9550
+Text Label 4250 9550 0    50   ~ 0
 LED_OUT
 Text Label 3600 7200 0    50   ~ 0
 LED_OUT
+Wire Notes Line
+	4900 8200 4900 11200
+$Comp
+L Device:R R5
+U 1 1 5E7028E5
+P 6050 9700
+F 0 "R5" H 6120 9746 50  0000 L CNN
+F 1 "100R" H 6120 9655 50  0000 L CNN
+F 2 "NixieClockMaster:R-0207_2V" V 5980 9700 50  0001 C CNN
+F 3 "~" H 6050 9700 50  0001 C CNN
+	1    6050 9700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Zener D5
+U 1 1 5E702A66
+P 6050 10300
+F 0 "D5" V 6004 10379 50  0000 L CNN
+F 1 "D_Zener" V 6095 10379 50  0000 L CNN
+F 2 "Diodes_THT:D_DO-35_SOD27_P2.54mm_Vertical_AnodeUp" H 6050 10300 50  0001 C CNN
+F 3 "~" H 6050 10300 50  0001 C CNN
+	1    6050 10300
+	0    1    1    0   
+$EndComp
+Text Label 6350 10000 0    50   ~ 0
+PIR_4V7
+Wire Wire Line
+	6050 9850 6050 10000
+Wire Wire Line
+	6350 10000 6050 10000
+Connection ~ 6050 10000
+Wire Wire Line
+	6050 10000 6050 10150
+Wire Wire Line
+	6050 9550 6050 9250
+Text Label 6050 9250 0    50   ~ 0
+5V
+$Comp
+L power:GND #PWR05
+U 1 1 5E767A5A
+P 6050 10600
+F 0 "#PWR05" H 6050 10350 50  0001 C CNN
+F 1 "GND" H 6055 10427 50  0000 C CNN
+F 2 "" H 6050 10600 50  0001 C CNN
+F 3 "" H 6050 10600 50  0001 C CNN
+	1    6050 10600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6050 10450 6050 10600
+Text Notes 5200 8750 0    100  ~ 0
+Motion Detector Supply
 $EndSCHEMATC
