@@ -2040,20 +2040,20 @@ void clockConfigPageHandler() {
   response_message += getRadioGroupFooter();
 
   // Date format
-  response_message += getDropDownHeader("Date format:", "dateFormat", false);
+  response_message += getDropDownHeader("Date format:", "dateFormat", false, false);
   response_message += getDropDownOption("0", "MM-DD", (current_config.dateFormat == 0));
   response_message += getDropDownOption("1", "DD-MM", (current_config.dateFormat == 1));
   response_message += getDropDownFooter();
 
   // Slots Mode
-  response_message += getDropDownHeader("Date Slots:", "slotsMode", true);
+  response_message += getDropDownHeader("Date Slots:", "slotsMode", true, false);
   response_message += getDropDownOption("0", "Don't use slots mode", (current_config.slotsMode == 0));
   response_message += getDropDownOption("1", "Wipe In, Wipe Out", (current_config.slotsMode == 1));
   response_message += getDropDownOption("2", "Bang In, Bang Out", (current_config.slotsMode == 2));
   response_message += getDropDownFooter();
 
   // preheat mode
-  response_message += getDropDownHeader("Digit pre-heat:", "preheatStrength", true);
+  response_message += getDropDownHeader("Digit pre-heat:", "preheatStrength", true, false);
   response_message += getDropDownOption("1", "Very Strong", (current_config.preheatStrength == PREHEAT_V_STRONG));
   response_message += getDropDownOption("2", "Strong", (current_config.preheatStrength == PREHEAT_STRONG));
   response_message += getDropDownOption("3", "Weak", (current_config.preheatStrength == PREHEAT_WEAK));
@@ -2116,7 +2116,7 @@ void clockConfigPageHandler() {
   response_message += getRadioGroupFooter();
 
   // Day blanking
-  response_message += getDropDownHeader("Day blanking:", "dayBlanking", true);
+  response_message += getDropDownHeader("Day blanking:", "dayBlanking", true, pirInstalled);
   response_message += getDropDownOption("0", "Never blank", (current_config.dayBlanking == 0));
   response_message += getDropDownOption("1", "Blank all day on weekends", (current_config.dayBlanking == 1));
   response_message += getDropDownOption("2", "Blank all day on week days", (current_config.dayBlanking == 2));
@@ -2129,13 +2129,14 @@ void clockConfigPageHandler() {
   response_message += getDropDownFooter();
 
   // Blank Mode
-  response_message += getDropDownHeader("Blank Mode:", "blankMode", true);
+  response_message += getDropDownHeader("Blank Mode:", "blankMode", true, false);
   response_message += getDropDownOption("0", "Blank tubes only", (current_config.blankMode == 0));
   response_message += getDropDownOption("1", "Blank LEDs only", (current_config.blankMode == 1));
   response_message += getDropDownOption("2", "Blank tubes and LEDs", (current_config.blankMode == 2));
   response_message += getDropDownFooter();
 
-  boolean hoursDisabled = (current_config.dayBlanking < 4);
+  // disable the hours if we have a pir installed or if the mode doesn't require it
+  boolean hoursDisabled = (current_config.dayBlanking < 4) || pirInstalled;
 
   // Blank hours from
   response_message += getNumberInput("Blank from:", "blankHourStart", 0, 23, current_config.blankHourStart, hoursDisabled);
@@ -2151,7 +2152,7 @@ void clockConfigPageHandler() {
   response_message += getFormHead("Back/Underlights");
 
   // Back light
-  response_message += getDropDownHeader("Back light:", "backlightMode", true);
+  response_message += getDropDownHeader("Back light:", "backlightMode", true, false);
   response_message += getDropDownOption("0", "Fixed RGB backlight", (current_config.backlightMode == 0));
   response_message += getDropDownOption("1", "Cycling RGB backlight", (current_config.backlightMode == 1));
   response_message += getDropDownOption("2", "'Colourtime' backlight", (current_config.backlightMode == 2));
@@ -2205,7 +2206,7 @@ void clockConfigPageHandler() {
   response_message += getFormHead("Separators");
 
   // LED mode
-  response_message += getDropDownHeader("LED Mode:", "ledMode", true);
+  response_message += getDropDownHeader("LED Mode:", "ledMode", true, false);
   response_message += getDropDownOption("0", "RailRoad", (current_config.ledMode == LED_RAILROAD));
   response_message += getDropDownOption("1", "Slow flash", (current_config.ledMode == LED_BLINK_SLOW));
   response_message += getDropDownOption("2", "Fast flash", (current_config.ledMode == LED_BLINK_FAST));
@@ -2215,7 +2216,7 @@ void clockConfigPageHandler() {
   response_message += getDropDownFooter();
 
   // Status LED mode Left
-  response_message += getDropDownHeader("Left Status LED Mode:", "statusModeL", true);
+  response_message += getDropDownHeader("Left Status LED Mode:", "statusModeL", true, false);
   response_message += getDropDownOption("0", "NTP", (current_config.statusModeL == STATUS_LED_MODE_NTP));
   response_message += getDropDownOption("1", "Connected", (current_config.statusModeL == STATUS_LED_MODE_ONLINE));
   response_message += getDropDownOption("2", "AM/PM", (current_config.statusModeL == STATUS_LED_MODE_AM_PM));
@@ -2225,7 +2226,7 @@ void clockConfigPageHandler() {
   response_message += getDropDownFooter();
 
   // Status LED mode Right
-  response_message += getDropDownHeader("Right Status LED Mode:", "statusModeR", true);
+  response_message += getDropDownHeader("Right Status LED Mode:", "statusModeR", true, false);
   response_message += getDropDownOption("0", "NTP", (current_config.statusModeR == STATUS_LED_MODE_NTP));
   response_message += getDropDownOption("1", "Connected", (current_config.statusModeR == STATUS_LED_MODE_ONLINE));
   response_message += getDropDownOption("2", "AM/PM", (current_config.statusModeR == STATUS_LED_MODE_AM_PM));
@@ -2234,7 +2235,7 @@ void clockConfigPageHandler() {
   response_message += getDropDownOption("5", "On", (current_config.statusModeR == STATUS_LED_MODE_ON));
   response_message += getDropDownFooter();
 
-  response_message += getDropDownHeader("Separator Dimming:", "separatorDimFactor", true);
+  response_message += getDropDownHeader("Separator Dimming:", "separatorDimFactor", true, false);
   response_message += getDropDownOption("1", "Bright", (current_config.separatorDimFactor == SEP_BRIGHT));
   response_message += getDropDownOption("2", "Dim", (current_config.separatorDimFactor == SEP_DIM));
   response_message += getDropDownFooter();
