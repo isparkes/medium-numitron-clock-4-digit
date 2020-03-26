@@ -101,6 +101,9 @@ void setup()
   OutputManager::Instance().loadNumberArrayPOSTMessage(DIAGS_SPIFFS);
   OutputManager::Instance().outputDisplayDiags();
 
+  // Let the user do the factory reset if required
+  delay(1000);
+
   for (int i = 0; i < 25 ; i++) button1.checkButton(millis());
 
   if (button1.isButtonPressedNow()) {
@@ -786,8 +789,8 @@ void setNextMode(int displayMode) {
       }
     case MODE_PIR_TIMEOUT_UP:
     case MODE_PIR_TIMEOUT_DOWN: {
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.pirTimeout, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfMode(displayMode);
+        OutputManager::Instance().displayConfigWide();
         break;
       }
     case MODE_BACKLIGHT_MODE: {
@@ -824,8 +827,8 @@ void setNextMode(int displayMode) {
       }
     case MODE_MIN_DIM_UP:
     case MODE_MIN_DIM_DOWN: {
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.minDim, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfMode(displayMode);
+        OutputManager::Instance().displayConfigWide();
         break;
       }
     case MODE_USE_PIR_PULLUP: {
@@ -1181,8 +1184,8 @@ void processCurrentMode(int displayMode) {
             current_config.pirTimeout = PIR_TIMEOUT_MIN;
           }
         }
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.pirTimeout, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfIntWide(current_config.pirTimeout);
+        OutputManager::Instance().confBlink();
         break;
       }
     case MODE_PIR_TIMEOUT_DOWN: {
@@ -1192,8 +1195,8 @@ void processCurrentMode(int displayMode) {
             current_config.pirTimeout = PIR_TIMEOUT_MAX;
           }
         }
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.pirTimeout, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfIntWide(current_config.pirTimeout);
+        OutputManager::Instance().confBlink();
         break;
       }
     case MODE_BACKLIGHT_MODE: {
@@ -1258,8 +1261,8 @@ void processCurrentMode(int displayMode) {
             current_config.minDim = MIN_DIM_MAX;
           }
         }
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.minDim, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfIntWide(current_config.minDim);
+        OutputManager::Instance().confBlink();
         break;
       }
     case MODE_MIN_DIM_DOWN: {
@@ -1269,8 +1272,8 @@ void processCurrentMode(int displayMode) {
             current_config.minDim = MIN_DIM_MIN;
           }
         }
-        OutputManager::Instance().loadNumberArrayConfInt(current_config.minDim, displayMode);
-        OutputManager::Instance().displayConfig();
+        OutputManager::Instance().loadNumberArrayConfIntWide(current_config.minDim);
+        OutputManager::Instance().confBlink();
         break;
       }
     case MODE_USE_PIR_PULLUP: {

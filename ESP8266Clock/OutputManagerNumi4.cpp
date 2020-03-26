@@ -406,10 +406,10 @@ void OutputManager::loadNumberArrayConfInt(int confValue, byte confNum) {
 // Show an configuration mode value
 // ************************************************************
 void OutputManager::loadNumberArrayConfMode(byte confNum) {
-  _digit_buffer.numberArray[3] = (confNum / 1) % 10;
-  _digit_buffer.numberArray[2] = (confNum / 10) % 10;
-  _digit_buffer.numberArray[1] = 0;
-  _digit_buffer.numberArray[0] = 0;
+  _digit_buffer.numberArray[3] = 0;
+  _digit_buffer.numberArray[2] = 0;
+  _digit_buffer.numberArray[1] = (confNum / 1) % 10;
+  _digit_buffer.numberArray[0] = (confNum / 10) % 10;
 }
 
 // ************************************************************
@@ -515,10 +515,10 @@ void OutputManager::allNormal(bool leadingBlank) {
 // Display preset
 // ************************************************************
 void OutputManager::displayConfig() {
-  _digit_buffer.displayType[0] = BLINK;
+  _digit_buffer.displayType[0] = NORMAL;
   _digit_buffer.displayType[1] = NORMAL;
-  _digit_buffer.displayType[2] = NORMAL;
-  _digit_buffer.displayType[3] = NORMAL;
+  _digit_buffer.displayType[2] = BLINK;
+  _digit_buffer.displayType[3] = BLINK;
 }
 
 // ************************************************************
@@ -529,6 +529,16 @@ void OutputManager::displayConfig3() {
   _digit_buffer.displayType[1] = NORMAL;
   _digit_buffer.displayType[2] = NORMAL;
   _digit_buffer.displayType[3] = NORMAL;
+}
+
+// ************************************************************
+// Display preset
+// ************************************************************
+void OutputManager::displayConfigWide() {
+  _digit_buffer.displayType[0] = NORMAL;
+  _digit_buffer.displayType[1] = NORMAL;
+  _digit_buffer.displayType[2] = BLANKED;
+  _digit_buffer.displayType[3] = BLANKED;
 }
 
 // ************************************************************

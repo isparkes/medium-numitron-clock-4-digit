@@ -149,6 +149,7 @@ class OutputManager {
     void displayConfig();
     void displayConfig3();
     void displayConfig2();
+    void displayConfigWide();
     void confBlink();
     void showDisplayIP();
     void allBlanked();
