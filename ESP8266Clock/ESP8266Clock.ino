@@ -63,7 +63,7 @@ void setup()
   OutputManager::CreateInstance();
   OutputManager::Instance().setUp();
   OutputManager::Instance().setConfigObject(&current_config);
-  
+
   // Show Start message on tubes
   OutputManager::Instance().loadNumberArrayPOSTMessage(DIAGS_START);
   OutputManager::Instance().outputDisplayDiags();
@@ -129,7 +129,7 @@ void setup()
     setWebAuthentication(current_config.webAuthentication);
     setWebUserName(current_config.webUsername);
     setWebPassword(current_config.webPassword);
-    
+
     ntpAsync.setTZS(current_config.tzs);
     ntpAsync.setNtpPool(current_config.ntpPool);
     ntpAsync.setUpdateInterval(current_config.ntpUpdateInterval);
@@ -297,7 +297,7 @@ void setup()
 
   // Note that we had an RTC to allow the indicator DP to have meaning
   onceHadAnRTC = useRTC;
-  
+
   // Set the time and set to  show the version
   OutputManager::Instance().loadNumberArrayTime();
   tempDisplayMode = TEMP_MODE_VERSION;
@@ -309,7 +309,7 @@ void setup()
 
   OutputManager::Instance().loadNumberArrayPOSTMessage(DIAGS_DEBUG);
   OutputManager::Instance().outputDisplayDiags();
-  
+
   if (debugManager.getDebug()) {
     setDiagnosticLED(DIAGS_DEBUG, STATUS_BLUE);
   } else {
@@ -420,7 +420,7 @@ void loop()
   ldrValue = getDimmingFromLDR();
   ledManager.setLDRValue(ldrValue);
   OutputManager::Instance().setLDRValue(ldrValue);
-  
+
   OutputManager::Instance().outputDisplay();
 
   setLeds();
@@ -563,7 +563,7 @@ void setLeds()
 
   unsigned int secsDelta;
   int secsDeltaAbs = (nowMillis - lastCheckMillis);
-  
+
   if (upOrDown) {
     secsDelta = (nowMillis - lastCheckMillis);
   } else {
@@ -571,7 +571,7 @@ void setLeds()
   }
 
   // --------------------------------------- separators --------------------------------------
-  
+
   switch (current_config.ledMode) {
     case LED_RAILROAD:
       {
@@ -643,7 +643,7 @@ void setLeds()
   }
 
   // output the backlight/underlight LEDs
-  ledManager.setPulseValue(secsDelta);  
+  ledManager.setPulseValue(secsDelta);
   ledManager.processLedStatus();
 }
 
@@ -905,7 +905,7 @@ void processCurrentMode(int displayMode) {
         if (tempDisplayModeDuration > 0) {
           blanked = false;
           setTubesAndLEDSblankMode();
-          
+
           if (tempDisplayMode == TEMP_MODE_SECS) {
             OutputManager::Instance().loadNumberArrayMinsSecs();
           }
@@ -1000,12 +1000,9 @@ void processCurrentMode(int displayMode) {
 
             // Continue slots transition
             msgDisplaying = activeTransition->runEffect(nowMillis, current_config.blankLeading);
-            if (msgDisplaying) {
-              activeTransition->updateRegularDisplaySeconds(second());
-            }
-            else {
+            if (!msgDisplaying) {
               // no slots mode, check if we are in valueDisplayMode
-            if (OutputManager::Instance().getValueDisplayTime() > 0) {
+              if (OutputManager::Instance().getValueDisplayTime() > 0) {
                 OutputManager::Instance().loadNumberArrayValueToShow();
                 OutputManager::Instance().loadDisplaySetValueType();
               } else {
@@ -2010,7 +2007,7 @@ void clockConfigPageHandler() {
   checkServerArgByte("preheatStrength", "preheatStrength", changed, current_config.preheatStrength);
   checkServerArgByte("separatorDimFactor", "separatorDimFactor", changed, current_config.separatorDimFactor);
   saveToSpiffsIfChanged(changed);
-  
+
   ledManager.recalculateVariables();
 
   // -----------------------------------------------------------------------------
@@ -2097,13 +2094,13 @@ void clockConfigPageHandler() {
 
   // -----------------------------------------------------------------------------
   response_message += getFormHead("Digit blanking");
-  
+
   if (pirInstalled) {
     response_message += getExplanationText("Motion detector installed - time based blanking is disabled");
   } else {
     response_message += getExplanationText("Motion detector not installed - motion detector blanking is inactive");
   }
-  
+
   // PIR timeout
   response_message += getNumberInput("Motion timeout:", "pirTimeout", PIR_TIMEOUT_MIN, PIR_TIMEOUT_MAX, current_config.pirTimeout, !pirInstalled);
 
@@ -2307,7 +2304,7 @@ void setDisplayValuePageHandler() {
   }
 
   if (formatValid) {
-    byte dispType[DIGIT_COUNT] = {0,0,0};
+    byte dispType[DIGIT_COUNT] = {0, 0, 0};
     dispType[2] = hex2bcd(valueFormat % 100);
     valueFormat = valueFormat / 100;
     dispType[1] = hex2bcd(valueFormat % 100);
