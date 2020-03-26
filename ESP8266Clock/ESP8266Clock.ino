@@ -75,15 +75,16 @@ void setup()
   NewTimeCallback ntcb = newTimeUpdateReceived;
   ntpAsync.setNewTimeCallback(ntcb);
 
-  debugManager.setUp(true);
-  wifiManager.setDebugOutput(true);
+  bool debugVal = false;
+  debugManager.setUp(debugVal);
+  wifiManager.setDebugOutput(debugVal);
 
   DebugCallback dbcb = debugMsgLocal;
   ntpAsync.setDebugCallback(dbcb);
-  ntpAsync.setDebugOutput(true);
+  ntpAsync.setDebugOutput(debugVal);
 
   spiffs.setDebugCallback(dbcb);
-  spiffs.setDebugOutput(true);
+  spiffs.setDebugOutput(debugVal);
 
   ledManager.setUp();
 
@@ -660,15 +661,15 @@ void setLeds()
 boolean checkPIR(unsigned long nowMillis) {
   if (pirConsecutiveCounts > (lastImpressionsPerSec / 2)) {
     pirLastSeen = nowMillis;
+    pirStatus = true;
     return false;
   } else {
     if (!pirInstalled) debugManager.debugMsg("Marking PIR as installed");
     pirInstalled = true;
     if (nowMillis > (pirLastSeen + (current_config.pirTimeout * 1000))) {
-      pirStatus = false;
       return true;
     } else {
-      pirStatus = true;
+      pirStatus = false;
       return false;
     }
   }
