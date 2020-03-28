@@ -79,7 +79,7 @@ void OutputManager::shiftDigitsOut(byte *displayDigits) {
       // Add in the orange separator "colon" LEDs
       displayDigits[2] |= SEG_IND * led1State;
       displayDigits[1] |= SEG_IND * led2State;
-      
+
       // Add in the red indicator LEDs
       displayDigits[0] |= SEG_IND * ledLState;
       displayDigits[3] |= SEG_IND * ledRState;
@@ -89,7 +89,7 @@ void OutputManager::shiftDigitsOut(byte *displayDigits) {
     // Add in the orange separator "colon" LEDs
     displayDigits[2] |= SEG_IND * led1State;
     displayDigits[1] |= SEG_IND * led2State;
-    
+
     // Add in the red indicator LEDs
     displayDigits[0] |= SEG_IND * ledLState;
     displayDigits[3] |= SEG_IND * ledRState;
@@ -585,10 +585,10 @@ void OutputManager::showDisplayIP() {
 // Display preset
 // ************************************************************
 void OutputManager::loadDisplaySetValueType() {
-  _digit_buffer.displayType[3] = _value_buffer.valueDisplayType[3] & 0xf;
-  _digit_buffer.displayType[2] = _value_buffer.valueDisplayType[2] & 0xf;
-  _digit_buffer.displayType[1] = _value_buffer.valueDisplayType[1] & 0xf;
-  _digit_buffer.displayType[0] = _value_buffer.valueDisplayType[0] & 0xf;
+  _digit_buffer.displayType[3] = _value_buffer.valueDisplayType[3];
+  _digit_buffer.displayType[2] = _value_buffer.valueDisplayType[2];
+  _digit_buffer.displayType[1] = _value_buffer.valueDisplayType[1];
+  _digit_buffer.displayType[0] = _value_buffer.valueDisplayType[0];
 }
 
 // ************************************************************
@@ -610,6 +610,18 @@ void OutputManager::applyBlanking() {
 // ************************************************************
 void OutputManager::setValueDisplayTime(int timeToDisplay) {
   _value_buffer.valueDisplayTime = timeToDisplay;
+}
+
+// ************************************************************
+// Set the format to use for the value display
+// ************************************************************
+void OutputManager::setValueFormat(int newValueFormat) {
+  for (int idx = 0 ; idx < DIGIT_COUNT ; idx++ ) {
+    byte digitFormat = newValueFormat % 10;
+    if (digitFormat > FORMAT_MAX) digitFormat = NORMAL;
+    _value_buffer.valueDisplayType[DIGIT_COUNT - idx - 1] = digitFormat;
+    newValueFormat = newValueFormat / 10;
+  }
 }
 
 // ************************************************************
