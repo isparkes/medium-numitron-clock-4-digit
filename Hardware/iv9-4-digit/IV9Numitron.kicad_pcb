@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.2-bee76a0~70~ubuntu18.04.1)
+(kicad_pcb (version 20171130) (host pcbnew 5.1.5+dfsg1-2build2)
 
   (general
     (thickness 1.6)
@@ -46,8 +46,6 @@
     (zone_clearance 0.508)
     (zone_45_only no)
     (trace_min 0.2)
-    (segment_width 0.2)
-    (edge_width 0.2)
     (via_size 0.8)
     (via_drill 0.4)
     (via_min_size 0.4)
@@ -57,6 +55,8 @@
     (uvias_allowed no)
     (uvia_min_size 0.2)
     (uvia_min_drill 0.1)
+    (edge_width 0.2)
+    (segment_width 0.2)
     (pcb_text_width 0.3)
     (pcb_text_size 1.5 1.5)
     (mod_edge_width 0.15)
@@ -2272,7 +2272,7 @@
   (gr_text "Copyright Ian Sparkes Nixie Clocks 2020\nwww.nixieclock.biz www.numitronclock.com" (at 117.602 93.1926) (layer F.SilkS) (tstamp 5D72CC1E)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
   )
-  (gr_text "DA-2000-4 Numitron Clock\nV1.0b  - 12.03.2020" (at 211.9884 57.7088 90) (layer F.SilkS) (tstamp 5D72C7FC)
+  (gr_text "IV-9-4 Numitron Clock\nV1.0b  - 12.03.2020" (at 211.9884 57.7088 90) (layer F.SilkS) (tstamp 5D72C7FC)
     (effects (font (size 0.75 0.75) (thickness 0.15)))
   )
   (gr_arc (start 149.398619 56.250189) (end 148.45862 57.050188) (angle -274.9131842) (layer F.SilkS) (width 0.2) (tstamp 5D4EB3F6))
