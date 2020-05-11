@@ -8,6 +8,9 @@
 
 #define DIGIT_COUNT 4
 
+// this is for tner very first version of the IV-9 4-digit board
+#define IV_9_V1_0_A
+
 extern boolean led1State;
 extern boolean led2State;
 extern boolean ledLState;
@@ -27,14 +30,25 @@ extern boolean blankTubes;
 //                                      --d--  
 
 // ************************ Display management ************************
-#define SEG_A   B00000001
-#define SEG_B   B00000010
-#define SEG_C   B00000100
-#define SEG_D   B00001000
-#define SEG_E   B00010000
-#define SEG_F   B00100000
-#define SEG_G   B01000000
-#define SEG_IND B10000000
+#ifdef IV_9_V1_0_A
+  #define SEG_A   B00000100
+  #define SEG_B   B00010000
+  #define SEG_C   B00001000
+  #define SEG_D   B00000010
+  #define SEG_E   B00100000
+  #define SEG_F   B01000000
+  #define SEG_G   B00000001
+  #define SEG_IND B10000000
+#else
+  #define SEG_A   B00000001
+  #define SEG_B   B00000010
+  #define SEG_C   B00000100
+  #define SEG_D   B00001000
+  #define SEG_E   B00010000
+  #define SEG_F   B00100000
+  #define SEG_G   B01000000
+  #define SEG_IND B10000000
+#endif
 
 #define DIGIT_0 SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F
 #define DIGIT_1 SEG_B | SEG_C
