@@ -1753,6 +1753,7 @@ void factoryReset() {
   cc->preheatStrength = PREHEAT_DEFAULT;
   cc->extDimFactor = EXT_DIM_FACTOR_DEFAULT;
   cc->separatorDimFactor = SEP_DIM_DEFAULT;
+  cc->doNotDimIndLEDs = false;
 
   spiffs.saveConfigToSpiffs(cc);
 }
@@ -2006,6 +2007,8 @@ void clockConfigPageHandler() {
   }
   checkServerArgByte("preheatStrength", "preheatStrength", changed, current_config.preheatStrength);
   checkServerArgByte("separatorDimFactor", "separatorDimFactor", changed, current_config.separatorDimFactor);
+  checkServerArgBoolean("doNotDimIndLEDs", "Web doNotDimIndLEDs", "on", "off", changed, current_config.doNotDimIndLEDs);
+
   saveToSpiffsIfChanged(changed);
 
   ledManager.recalculateVariables();
@@ -2239,6 +2242,17 @@ void clockConfigPageHandler() {
   response_message += getDropDownOption("1", "Bright", (current_config.separatorDimFactor == SEP_BRIGHT));
   response_message += getDropDownOption("2", "Dim", (current_config.separatorDimFactor == SEP_DIM));
   response_message += getDropDownFooter();
+
+  // Don't dim the indicators - for tubes with DPs used as indicators
+  response_message += getRadioGroupHeader("Indicators full bightness");
+  if (current_config.doNotDimIndLEDs) {
+    response_message += getRadioButton("doNotDimIndLEDs", "On", "on", true);
+    response_message += getRadioButton("doNotDimIndLEDs", "Off", "off", false);
+  } else {
+    response_message += getRadioButton("doNotDimIndLEDs", "On", "on", false);
+    response_message += getRadioButton("doNotDimIndLEDs", "Off", "off", true);
+  }
+  response_message += getRadioGroupFooter();
 
   response_message += getSubmitButton("Set");
 

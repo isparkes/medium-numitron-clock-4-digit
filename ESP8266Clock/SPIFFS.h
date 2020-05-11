@@ -51,6 +51,7 @@ typedef struct {
   byte preheatStrength;
   byte extDimFactor;
   byte separatorDimFactor;
+  boolean doNotDimIndLEDs;
 } spiffs_config_t;
 
 typedef struct {
