@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /data/sdb/Clocks/IV13-4digit-rev1/IV13Numitron/IV13Numitron.sch)
-    (date "Sa 02 Mai 2020 11:39:59")
+    (date "Sa 16 Mai 2020 16:49:41")
     (tool "Eeschema 5.1.5+dfsg1-2build2")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
