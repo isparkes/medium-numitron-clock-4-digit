@@ -18,7 +18,6 @@ typedef struct {
   boolean hourMode;
   int minDim;
 
-  int digitOffCount;
   byte dayBlanking;
   int thresholdBright;
   int sensitivityLDR;
