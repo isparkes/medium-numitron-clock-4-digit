@@ -17,12 +17,14 @@ typedef struct {
   String tzs;
   boolean hourMode;
   int minDim;
-
   byte dayBlanking;
+  boolean scrollback;
+  boolean fade;
+  byte fadeSteps;
+  byte scrollSteps;
   int thresholdBright;
   int sensitivityLDR;
   int sensorSmoothCountLDR;
-
   byte blankHourStart;
   byte blankHourEnd;
   byte blankMode;
@@ -51,6 +53,7 @@ typedef struct {
   byte extDimFactor;
   byte separatorDimFactor;
   boolean doNotDimIndLEDs;
+  byte antiGhost;
 } spiffs_config_t;
 
 typedef struct {
@@ -66,7 +69,7 @@ class SPIFFS_CLOCK
 {
   public:
     void setDebugOutput(bool newDebug);
-    
+
     boolean testMountSpiffs();
 
     boolean getConfigFromSpiffs(spiffs_config_t* spiffs_config);
