@@ -9,7 +9,7 @@
 #define DIGIT_COUNT 4
 
 // this is for tner very first version of the IV-9 4-digit board
-#define IV_9_V1_0_A
+//#define IV_9_V1_0_A
 
 extern boolean led1State;
 extern boolean led2State;

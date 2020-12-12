@@ -10,13 +10,20 @@
 // Test SPIFFS
 // ************************************************************
 boolean SPIFFS_CLOCK::testMountSpiffs() {
-  boolean mounted = false;
+  _spiffsMounted = false;
   if (SPIFFS.begin()) {
-    mounted = true;
+    _spiffsMounted = true;
     SPIFFS.end();
   }
 
-  return mounted;
+  return _spiffsMounted;
+}
+
+// ************************************************************
+// Return SPIFFS Mounted status
+// ************************************************************
+boolean SPIFFS_CLOCK::getSpiffsMounted() {
+  return _spiffsMounted;
 }
 
 // ************************************************************
@@ -25,7 +32,8 @@ boolean SPIFFS_CLOCK::testMountSpiffs() {
 boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
   boolean loaded = false;
   if (SPIFFS.begin()) {
-    debugMsg("mounted file system");
+    debugMsg("mounted file system config read");
+    _spiffsMounted = true;
     if (SPIFFS.exists("/config.json")) {
       //file exists, reading and loading
       debugMsg("reading config file");
@@ -39,7 +47,7 @@ boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
         configFile.readBytes(buf.get(), size);
         DynamicJsonBuffer jsonBuffer;
         JsonObject& json = jsonBuffer.parseObject(buf.get());
-        json.printTo(Serial);
+        if (_debug) json.printTo(Serial);
         debugMsg("\n");
 
         if (json.success()) {
@@ -192,8 +200,8 @@ boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
 // ************************************************************
 void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
   if (SPIFFS.begin()) {
-    debugMsg("mounted file system");
-    debugMsg("saving config");
+    debugMsg("mounted file system config write");
+    _spiffsMounted = true;
 
     DynamicJsonBuffer jsonBuffer;
     JsonObject& json = jsonBuffer.createObject();
@@ -247,7 +255,7 @@ void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
       return;
     }
 
-    json.printTo(Serial);
+    if (_debug) json.printTo(Serial);
     debugMsg("\n");
 
     json.printTo(configFile);
@@ -266,7 +274,8 @@ void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
 boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
   boolean loaded = false;
   if (SPIFFS.begin()) {
-    debugMsg("mounted file system");
+    debugMsg("mounted file system stats read");
+    _spiffsMounted = true;
     if (SPIFFS.exists("/stats.json")) {
       //file exists, reading and loading
       debugMsg("reading stats file");
@@ -280,7 +289,8 @@ boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
         statsFile.readBytes(buf.get(), size);
         DynamicJsonBuffer jsonBuffer;
         JsonObject& json = jsonBuffer.parseObject(buf.get());
-        json.printTo(Serial);
+        
+        if (_debug) json.printTo(Serial);
         debugMsg("\n");
 
         if (json.success()) {
@@ -313,8 +323,8 @@ boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
 // ************************************************************
 void SPIFFS_CLOCK::saveStatsToSpiffs(spiffs_stats_t* spiffs_stats) {
   if (SPIFFS.begin()) {
-    debugMsg("mounted file system");
-    debugMsg("saving stats");
+    debugMsg("mounted file system stats write");
+    _spiffsMounted = true;
 
     DynamicJsonBuffer jsonBuffer;
     JsonObject& json = jsonBuffer.createObject();
@@ -328,7 +338,7 @@ void SPIFFS_CLOCK::saveStatsToSpiffs(spiffs_stats_t* spiffs_stats) {
       return;
     }
 
-    json.printTo(Serial);
+    if (_debug) json.printTo(Serial);
     debugMsg("\n");
 
     json.printTo(statsFile);
