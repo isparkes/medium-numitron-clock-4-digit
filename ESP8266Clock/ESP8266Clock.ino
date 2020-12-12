@@ -198,7 +198,6 @@ void setup()
 
       setLeds();
 
-      // debugManager.debugMsg("Checing test mode exit condition");
       button1.checkButton(nowMillis);
       if (button1.isButtonPressedNow() && (secCount == 8)) {
         inLoop = false;
@@ -1801,8 +1800,12 @@ void rootPageHandler() {
     }
     response_message += getTableRow2Col("Time before next update", secsToReadableString(absNextUpdate) + overdueInd);
   } else {
-  
     server.on("/reset-tmp", resetPageHandler);
+
+    if (myHostname == "") {
+      myHostname = "ESP-"+String(ESP.getChipId(), HEX);
+      myHostname.toUpperCase();
+    }
     response_message += getWarningAlert("Not connected to the Internet! Click <a href=\"/reset-tmp\">here</a> to restart and put the clock back into Access Mode for 60 seconds, then Connect to SSID " + myHostname + " and configure your WiFi!");
     response_message += getTableRow2Col("AP IP", formatIPAsString(myIP));
     response_message += getTableRow2Col("AP MAC", WiFi.softAPmacAddress());
