@@ -1608,7 +1608,10 @@ String getRTCTime(boolean setInternalTime) {
     byte mins = Clock.minute;
     byte secs = Clock.second;
 
-    String returnValue = String(years) + ":" + String(months) + ":" + String(days) + " " + String(hours) + ":" + String(mins) + ":" + String(secs);
+    char buf1[20];
+    sprintf(buf1, "%04d:%02d:%02d %02d:%02d:%02d", years, months, days, hours, mins, secs);
+    String returnValue = String(buf1);
+  
     debugManager.debugMsg("Got RTC time: " + returnValue);
 
     if (setInternalTime) {
@@ -1618,6 +1621,8 @@ String getRTCTime(boolean setInternalTime) {
     }
 
     return returnValue;
+  } else {
+    return "RTC not available";
   }
 }
 
@@ -1883,7 +1888,7 @@ void rootPageHandler() {
   response_message += getTableRow2Col("Display Time", timeToReadableString(year(),month(),day(),hour(),minute(),second()));
   response_message += getTableRow2Col("Real Time Clock", rtcState);
   if (useRTC) {
-    response_message += getTableRow2Col("RTC Time", timeStringToReadableString(getRTCTime(false)));
+    response_message += getTableRow2Col("RTC Time", getRTCTime(false));
   }
   response_message += getTableRow2Col("Impressions/Sec", lastImpressionsPerSec);
   response_message += getTableRow2Col("Total Clock On Hrs", secsToReadableString(current_stats.uptimeMins * 60));
@@ -2016,7 +2021,7 @@ void clockConfigPageHandler() {
   }
   changed = changed | checkServerArgByte("preheatStrength", "preheatStrength", current_config.preheatStrength);
   changed = changed | checkServerArgByte("separatorDimFactor", "separatorDimFactor", current_config.separatorDimFactor);
-  changed = changed | checkServerArgBoolean("doNotDimIndLEDs", "Web doNotDimIndLEDs", "on", "off", current_config.doNotDimIndLEDs);
+  changed = changed | checkServerArgBoolean("doNotDimIndLEDs", "doNotDimIndLEDs", "on", "off", current_config.doNotDimIndLEDs);
 
   saveToSpiffsIfChanged(changed);
 
