@@ -1431,7 +1431,7 @@ bool processStatusMode(byte mode) {
         break;
       }
     case STATUS_LED_MODE_PIR: {
-        return pirStatus;
+        return digitalRead(pirPin);
         break;
       }
     case STATUS_LED_MODE_OFF: {
