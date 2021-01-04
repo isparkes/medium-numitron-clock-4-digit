@@ -76,7 +76,7 @@ F 3 "~" H 8170 9990 50  0001 C CNN
 	1    8170 9990
 	1    0    0    -1  
 $EndComp
-Text Label 3200 1130 2    50   ~ 0
+Text Label 3200 930  2    50   ~ 0
 PIR
 Wire Wire Line
 	3200 1130 2800 1130
@@ -88,7 +88,7 @@ Wire Wire Line
 	2800 1430 3200 1430
 Wire Wire Line
 	2800 1230 3200 1230
-Text Label 3200 930  2    50   ~ 0
+Text Label 3200 1130 2    50   ~ 0
 BTN
 Text Label 3200 1330 2    50   ~ 0
 SDA
