@@ -1920,7 +1920,7 @@ U 1 1 5FF36397
 P 2920 3020
 F 0 "J5" H 3000 3012 50  0000 L CNN
 F 1 "Program" H 3000 2921 50  0000 L CNN
-F 2 "NixieClockMaster:Header_MA06-1_SmallPads" H 2920 3020 50  0001 C CNN
+F 2 "NixieClockMaster:Header_MA06-1_SmallPads_NoSS" H 2920 3020 50  0001 C CNN
 F 3 "~" H 2920 3020 50  0001 C CNN
 	1    2920 3020
 	1    0    0    -1  

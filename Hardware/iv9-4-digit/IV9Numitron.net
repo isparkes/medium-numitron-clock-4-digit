@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /data/sdb/Clocks/iv-9-4-digit/IV9Numitron/IV9Numitron.sch)
-    (date "Mo 04 Jan 2021 07:14:56")
+    (date "Mo 04 Jan 2021 07:28:55")
     (tool "Eeschema 5.1.5+dfsg1-2build2")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -449,7 +449,7 @@
       (tstamp 60AF9FCC))
     (comp (ref J5)
       (value Program)
-      (footprint NixieClockMaster:Header_MA06-1_SmallPads)
+      (footprint NixieClockMaster:Header_MA06-1_SmallPads_NoSS)
       (datasheet ~)
       (libsource (lib Connector_Generic) (part Conn_01x06) (description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"))
       (sheetpath (names /) (tstamps /))
