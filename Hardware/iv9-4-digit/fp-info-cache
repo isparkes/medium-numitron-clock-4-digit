@@ -1060,80 +1060,76 @@ NixieClockMaster
 Z570M
 This is the footprint suitable for the following nixie tubes: <br>
 * Z570M <br>
-* Z5700M <br>
-* Z573M <br>
-* Z5730M <br>
+0
+0
+0
 * Z574M <br>
 * Z5740M <br>
 <br>
 Tube diameter: 19mm<br>
-Height from PCB: 47.6mm
-
+0
+0
 0
 13
 13
 NixieClockMaster
 Z570M-NoDP
-This is the footprint suitable for the following nixie tubes: <br>
-* Z570M <br>
-* Z5700M <br>
+0
+0
+0
 * Z573M <br>
 * Z5730M <br>
 * Z574M <br>
 * Z5740M <br>
-<br>
-Tube diameter: 19mm<br>
-Height from PCB: 47.6mm
+0
+0
+0
 
 0
 11
 11
-NixieClockMaster
-ZM1000R3
-
+0
+0
+0
 
 0
 14
 14
-NixieClockMaster
-nixies-us-IN-2-DSUB
-
+0
+0
+0
 
 0
 11
 11
-NixieClockMaster
-nixies-us-IN-2-DSUB-1mm1-pins
-
+0
+0
+0
 
 0
 11
 11
-NixieClockMaster
-nixies-us-IN-18
-MAY BE USED WITH SOCKET: PL31-P
+0
+0
+0
 MAY BE USED WITH SOCKET: PL31-P
 0
 12
 12
-NixieClockMaster
-optocoupler-DIL04
-DUAL IN LINE PACKAGE
+0
+0
+0
 DUAL IN LINE PACKAGE
 0
 4
 4
-NixieClockMaster
-rcl-C050-024X044
-CAPACITOR
+0
+0
+0
 CAPACITOR
 0
 2
 2
-NixieClockMaster
-russian-nixies-IN-1
-MAY BE USED WITH SOCKET: U11
-MAY BE USED WITH SOCKET: U11
 0
-11
-11
+0
+0
