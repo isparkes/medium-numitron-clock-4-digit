@@ -44,7 +44,7 @@ Wire Wire Line
 Wire Wire Line
 	12600 2250 12600 2600
 $Comp
-L Device:C C1
+L IV9Numitron-rescue:C-Device C1
 U 1 1 5D19C661
 P 9500 4550
 F 0 "C1" H 9615 4596 50  0000 L CNN
@@ -55,7 +55,7 @@ F 3 "~" H 9500 4550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:C C13
+L IV9Numitron-rescue:C-Device C13
 U 1 1 5D2530C3
 P 8570 9990
 F 0 "C13" H 8685 10036 50  0000 L CNN
@@ -66,7 +66,7 @@ F 3 "~" H 8570 9990 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:CP C14
+L IV9Numitron-rescue:CP-Device C14
 U 1 1 5D253309
 P 8170 9990
 F 0 "C14" H 8288 10036 50  0000 L CNN
@@ -113,7 +113,7 @@ Connection ~ 8570 9690
 Wire Wire Line
 	8570 9690 8170 9690
 $Comp
-L power:GND #PWR010
+L IV9Numitron-rescue:GND-power #PWR010
 U 1 1 5D3CAA93
 P 8170 10390
 F 0 "#PWR010" H 8170 10140 50  0001 C CNN
@@ -127,7 +127,7 @@ Wire Wire Line
 	8170 10290 8170 10390
 Connection ~ 8170 10290
 $Comp
-L power:+5V #PWR011
+L IV9Numitron-rescue:+5V-power #PWR011
 U 1 1 5D3E4649
 P 8570 9540
 F 0 "#PWR011" H 8570 9390 50  0001 C CNN
@@ -141,7 +141,7 @@ Wire Wire Line
 	8570 9540 8570 9690
 NoConn ~ 11050 3050
 $Comp
-L Sensor_Optical:LDR03 LDR1
+L IV9Numitron-rescue:LDR03-Sensor_Optical LDR1
 U 1 1 5D5EFD1D
 P 5700 5050
 F 0 "LDR1" H 5770 5096 50  0000 L CNN
@@ -152,7 +152,7 @@ F 3 "http://www.elektronica-componenten.nl/WebRoot/StoreNL/Shops/61422969/54F1/B
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R7
+L IV9Numitron-rescue:R-Device R7
 U 1 1 5D5EFDD0
 P 5700 4400
 F 0 "R7" H 5770 4446 50  0000 L CNN
@@ -163,7 +163,7 @@ F 3 "~" H 5700 4400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5V #PWR0101
+L IV9Numitron-rescue:+5V-power #PWR0101
 U 1 1 5D610DDD
 P 5700 4150
 F 0 "#PWR0101" H 5700 4000 50  0001 C CNN
@@ -174,7 +174,7 @@ F 3 "" H 5700 4150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0102
+L IV9Numitron-rescue:GND-power #PWR0102
 U 1 1 5D610F04
 P 5910 5410
 F 0 "#PWR0102" H 5910 5160 50  0001 C CNN
@@ -200,23 +200,12 @@ Text Label 2100 7300 0    50   ~ 0
 BTN
 Text Label 2100 7400 0    50   ~ 0
 GND
-$Comp
-L IV9Numitron-rescue:DS1307+-NixieClockMaster-DA2000Numitron-rescue U7
-U 1 1 5D68AD37
-P 5500 2350
-F 0 "U7" H 5500 2350 50  0000 C CNN
-F 1 "DS1307+" H 5500 2250 50  0000 C CNN
-F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5500 2350 50  0001 C CNN
-F 3 "" H 5500 2350 50  0001 C CNN
-	1    5500 2350
-	1    0    0    -1  
-$EndComp
 Text Label 8820 9690 0    50   ~ 0
 5V
 Wire Wire Line
 	5500 1550 5500 1650
 $Comp
-L power:+5V #PWR016
+L IV9Numitron-rescue:+5V-power #PWR016
 U 1 1 5D68B5B9
 P 5500 1550
 F 0 "#PWR016" H 5500 1400 50  0001 C CNN
@@ -227,7 +216,7 @@ F 3 "" H 5500 1550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR017
+L IV9Numitron-rescue:GND-power #PWR017
 U 1 1 5D68B5BF
 P 5500 3050
 F 0 "#PWR017" H 5500 2800 50  0001 C CNN
@@ -239,44 +228,13 @@ F 3 "" H 5500 3050 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5500 2950 5500 3000
-$Comp
-L Device:Crystal Y1
-U 1 1 5D6D66AB
-P 4500 2650
-F 0 "Y1" V 4454 2781 50  0000 L CNN
-F 1 "Crystal" V 4545 2781 50  0000 L CNN
-F 2 "NixieClockMaster:Crystal_DS10_d1.0mm_l4.3mm_Vertical" H 4500 2650 50  0001 C CNN
-F 3 "~" H 4500 2650 50  0001 C CNN
-	1    4500 2650
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4500 2500 4500 2450
-Wire Wire Line
-	4500 2450 4750 2450
-Wire Wire Line
-	4750 2450 4750 2550
-Wire Wire Line
-	4750 2550 4900 2550
-Wire Wire Line
-	4500 2800 4500 2850
-Wire Wire Line
-	4500 2850 4750 2850
-Wire Wire Line
-	4750 2850 4750 2750
-Wire Wire Line
-	4750 2750 4900 2750
-Wire Wire Line
-	4900 2250 4700 2250
-Wire Wire Line
-	4350 2050 4550 2050
-Text Label 4350 2050 0    50   ~ 0
+Text Label 4360 2350 0    50   ~ 0
 SCL
-Text Label 4350 2250 0    50   ~ 0
+Text Label 4360 2450 0    50   ~ 0
 SDA
-NoConn ~ 6100 2050
+NoConn ~ 6000 2350
 $Comp
-L Device:Battery BT1
+L IV9Numitron-rescue:Battery-Device BT1
 U 1 1 5D74E185
 P 6500 2750
 F 0 "BT1" H 6608 2796 50  0000 L CNN
@@ -291,14 +249,8 @@ Wire Wire Line
 Connection ~ 5500 3000
 Wire Wire Line
 	5500 3000 5500 3050
-Wire Wire Line
-	6500 2550 6200 2550
-Wire Wire Line
-	6200 2550 6200 2650
-Wire Wire Line
-	6200 2650 6100 2650
 $Comp
-L Device:R R8
+L IV9Numitron-rescue:R-Device R8
 U 1 1 5D777E01
 P 4550 1800
 F 0 "R8" H 4350 1850 50  0000 L CNN
@@ -317,20 +269,8 @@ Wire Wire Line
 Wire Wire Line
 	4550 1550 4550 1650
 Connection ~ 5500 1650
-Wire Wire Line
-	5500 1650 5500 1750
-Wire Wire Line
-	4550 1950 4550 2050
-Connection ~ 4550 2050
-Wire Wire Line
-	4550 2050 4900 2050
-Wire Wire Line
-	4700 2250 4700 1950
-Connection ~ 4700 2250
-Wire Wire Line
-	4700 2250 4350 2250
 $Comp
-L Device:R R9
+L IV9Numitron-rescue:R-Device R9
 U 1 1 5D7BAB6D
 P 4700 1800
 F 0 "R9" H 4770 1846 50  0000 L CNN
@@ -346,7 +286,7 @@ Connection ~ 4700 1550
 Wire Wire Line
 	4700 1550 4550 1550
 $Comp
-L LED:WS2812B NP4
+L IV9Numitron-rescue:WS2812B-LED NP4
 U 1 1 5D800378
 P 1550 9550
 F 0 "NP4" H 1600 9800 50  0000 L CNN
@@ -357,7 +297,7 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 1650 9175 50  0001 
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED:WS2812B NP3
+L IV9Numitron-rescue:WS2812B-LED NP3
 U 1 1 5D8005C8
 P 2250 9550
 F 0 "NP3" H 2300 9800 50  0000 L CNN
@@ -368,7 +308,7 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 2350 9175 50  0001 
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED:WS2812B NP2
+L IV9Numitron-rescue:WS2812B-LED NP2
 U 1 1 5D800685
 P 2950 9550
 F 0 "NP2" H 3000 9800 50  0000 L CNN
@@ -379,7 +319,7 @@ F 3 "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf" H 3050 9175 50  0001 
 	1    0    0    -1  
 $EndComp
 $Comp
-L LED:WS2812B NP1
+L IV9Numitron-rescue:WS2812B-LED NP1
 U 1 1 5D8007DB
 P 3650 9550
 F 0 "NP1" H 3700 9800 50  0000 L CNN
@@ -430,7 +370,7 @@ Wire Wire Line
 Text Label 850  9550 0    50   ~ 0
 LED_DATA
 $Comp
-L power:GND #PWR015
+L IV9Numitron-rescue:GND-power #PWR015
 U 1 1 5DC024D0
 P 2250 10050
 F 0 "#PWR015" H 2250 9800 50  0001 C CNN
@@ -443,7 +383,7 @@ $EndComp
 Text Label 3300 9150 0    50   ~ 0
 5V
 $Comp
-L Connector:USB_B_Mini J2
+L IV9Numitron-rescue:USB_B_Mini-Connector J2
 U 1 1 5DC8E872
 P 1350 4950
 F 0 "J2" H 1405 5417 50  0000 C CNN
@@ -463,7 +403,7 @@ Wire Wire Line
 	1350 5400 1350 5500
 Connection ~ 1350 5400
 $Comp
-L power:GND #PWR018
+L IV9Numitron-rescue:GND-power #PWR018
 U 1 1 5DCD5B75
 P 1350 5500
 F 0 "#PWR018" H 1350 5250 50  0001 C CNN
@@ -481,7 +421,7 @@ Wire Wire Line
 Wire Wire Line
 	1800 4750 1800 4500
 $Comp
-L power:+5V #PWR019
+L IV9Numitron-rescue:+5V-power #PWR019
 U 1 1 5DD65049
 P 1800 4500
 F 0 "#PWR019" H 1800 4350 50  0001 C CNN
@@ -567,7 +507,7 @@ Wire Wire Line
 Wire Wire Line
 	9900 3750 10200 3750
 $Comp
-L Device:R R1
+L IV9Numitron-rescue:R-Device R1
 U 1 1 5D637C1D
 P 10200 4350
 F 0 "R1" H 10350 4400 50  0000 C CNN
@@ -578,7 +518,7 @@ F 3 "~" H 10200 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR01
+L IV9Numitron-rescue:GND-power #PWR01
 U 1 1 5D65C6E8
 P 10200 4550
 F 0 "#PWR01" H 10200 4300 50  0001 C CNN
@@ -617,7 +557,7 @@ Wire Wire Line
 	8600 3650 9050 3650
 Connection ~ 9050 3650
 $Comp
-L Device:C C2
+L IV9Numitron-rescue:C-Device C2
 U 1 1 5D85BB79
 P 11550 4550
 F 0 "C2" H 11665 4596 50  0000 L CNN
@@ -689,7 +629,7 @@ Wire Wire Line
 Wire Wire Line
 	11950 3750 12250 3750
 $Comp
-L Device:R R2
+L IV9Numitron-rescue:R-Device R2
 U 1 1 5D85BBAF
 P 12250 4350
 F 0 "R2" H 12400 4400 50  0000 C CNN
@@ -700,7 +640,7 @@ F 3 "~" H 12250 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR03
+L IV9Numitron-rescue:GND-power #PWR03
 U 1 1 5D85BBB5
 P 12250 4550
 F 0 "#PWR03" H 12250 4300 50  0001 C CNN
@@ -743,7 +683,7 @@ F 3 "" H 13250 3150 60  0001 C CNN
 $EndComp
 Connection ~ 12600 2250
 $Comp
-L Device:C C3
+L IV9Numitron-rescue:C-Device C3
 U 1 1 5D930350
 P 13600 4550
 F 0 "C3" H 13715 4596 50  0000 L CNN
@@ -815,7 +755,7 @@ Wire Wire Line
 Wire Wire Line
 	14000 3750 14300 3750
 $Comp
-L Device:R R3
+L IV9Numitron-rescue:R-Device R3
 U 1 1 5D930385
 P 14300 4350
 F 0 "R3" H 14450 4400 50  0000 C CNN
@@ -826,7 +766,7 @@ F 3 "~" H 14300 4350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR07
+L IV9Numitron-rescue:GND-power #PWR07
 U 1 1 5D93038B
 P 14300 4550
 F 0 "#PWR07" H 14300 4300 50  0001 C CNN
@@ -878,7 +818,7 @@ Wire Wire Line
 Wire Wire Line
 	10600 6000 10600 5650
 $Comp
-L Device:C C4
+L IV9Numitron-rescue:C-Device C4
 U 1 1 5D95CF46
 P 9500 7950
 F 0 "C4" H 9615 7996 50  0000 L CNN
@@ -948,7 +888,7 @@ Wire Wire Line
 Wire Wire Line
 	9900 7150 10200 7150
 $Comp
-L Device:R R4
+L IV9Numitron-rescue:R-Device R4
 U 1 1 5D95CF7E
 P 10200 7750
 F 0 "R4" H 10350 7800 50  0000 C CNN
@@ -959,7 +899,7 @@ F 3 "~" H 10200 7750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR04
+L IV9Numitron-rescue:GND-power #PWR04
 U 1 1 5D95CF84
 P 10200 7950
 F 0 "#PWR04" H 10200 7700 50  0001 C CNN
@@ -988,7 +928,7 @@ Wire Wire Line
 	8600 7050 9050 7050
 Connection ~ 9050 7050
 $Comp
-L Device:C C15
+L IV9Numitron-rescue:C-Device C15
 U 1 1 5DA34756
 P 5900 1650
 F 0 "C15" V 5648 1650 50  0000 C CNN
@@ -1009,7 +949,7 @@ Wire Wire Line
 	6250 3000 6500 3000
 NoConn ~ 13100 3050
 $Comp
-L Device:CP C16
+L IV9Numitron-rescue:CP-Device C16
 U 1 1 5DBA8AD5
 P 2050 5850
 F 0 "C16" H 2168 5896 50  0000 L CNN
@@ -1020,7 +960,7 @@ F 3 "~" H 2050 5850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR09
+L IV9Numitron-rescue:GND-power #PWR09
 U 1 1 5DBA8C7F
 P 2050 6100
 F 0 "#PWR09" H 2050 5850 50  0001 C CNN
@@ -1033,7 +973,7 @@ $EndComp
 Wire Wire Line
 	2050 6000 2050 6100
 $Comp
-L power:+5V #PWR012
+L IV9Numitron-rescue:+5V-power #PWR012
 U 1 1 5DC16C7B
 P 12600 2100
 F 0 "#PWR012" H 12600 1950 50  0001 C CNN
@@ -1046,7 +986,7 @@ $EndComp
 Wire Wire Line
 	12600 2100 12600 2250
 $Comp
-L Device:LED D3
+L IV9Numitron-rescue:LED-Device D3
 U 1 1 5D28D1B4
 P 12650 4600
 F 0 "D3" V 12688 4483 50  0000 R CNN
@@ -1057,7 +997,7 @@ F 3 "~" H 12650 4600 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R12
+L IV9Numitron-rescue:R-Device R12
 U 1 1 5D28D1BA
 P 12650 4250
 F 0 "R12" H 12800 4300 50  0000 C CNN
@@ -1074,7 +1014,7 @@ Wire Wire Line
 Wire Wire Line
 	12650 4400 12650 4450
 $Comp
-L Device:LED D4
+L IV9Numitron-rescue:LED-Device D4
 U 1 1 5D2B333A
 P 14700 4600
 F 0 "D4" V 14738 4483 50  0000 R CNN
@@ -1085,7 +1025,7 @@ F 3 "~" H 14700 4600 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R13
+L IV9Numitron-rescue:R-Device R13
 U 1 1 5D2B3340
 P 14700 4250
 F 0 "R13" H 14850 4300 50  0000 C CNN
@@ -1104,7 +1044,7 @@ Wire Wire Line
 Text Label 1700 5550 2    50   ~ 0
 3V8
 $Comp
-L Diode:1N4007 D7
+L IV9Numitron-rescue:1N4007-Diode D7
 U 1 1 5D47EDA0
 P 2050 5000
 F 0 "D7" V 2096 4921 50  0000 R CNN
@@ -1115,7 +1055,7 @@ F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2050 5000 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Diode:1N4007 D8
+L IV9Numitron-rescue:1N4007-Diode D8
 U 1 1 5D47EF73
 P 2050 5400
 F 0 "D8" V 2096 5321 50  0000 R CNN
@@ -1194,7 +1134,7 @@ Wire Wire Line
 	15200 5000 15200 4750
 Connection ~ 14700 5000
 $Comp
-L power:+5V #PWR02
+L IV9Numitron-rescue:+5V-power #PWR02
 U 1 1 5D67B7B7
 P 15200 4750
 F 0 "#PWR02" H 15200 4600 50  0001 C CNN
@@ -1305,7 +1245,7 @@ Text Label 2100 6800 0    50   ~ 0
 SDA
 NoConn ~ 9900 7250
 $Comp
-L power:+5V #PWR0104
+L IV9Numitron-rescue:+5V-power #PWR0104
 U 1 1 5DC55067
 P 10600 5650
 F 0 "#PWR0104" H 10600 5500 50  0001 C CNN
@@ -1349,7 +1289,7 @@ LED_OUT
 Wire Notes Line
 	4900 8200 4900 11200
 $Comp
-L Device:R R5
+L IV9Numitron-rescue:R-Device R5
 U 1 1 5E7028E5
 P 6050 9700
 F 0 "R5" H 6120 9746 50  0000 L CNN
@@ -1360,7 +1300,7 @@ F 3 "~" H 6050 9700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:D_Zener D5
+L IV9Numitron-rescue:D_Zener-Device D5
 U 1 1 5E702A66
 P 6050 10300
 F 0 "D5" V 6004 10379 50  0000 L CNN
@@ -1384,7 +1324,7 @@ Wire Wire Line
 Text Label 6050 9250 0    50   ~ 0
 5V
 $Comp
-L power:GND #PWR05
+L IV9Numitron-rescue:GND-power #PWR05
 U 1 1 5E767A5A
 P 6050 10600
 F 0 "#PWR05" H 6050 10350 50  0001 C CNN
@@ -1547,7 +1487,7 @@ Wire Wire Line
 Wire Wire Line
 	10150 6750 10150 7550
 $Comp
-L Regulator_Linear:AMS1117-3.3 U5
+L IV9Numitron-rescue:AMS1117-3.3-Regulator_Linear U5
 U 1 1 5FFCEFBA
 P 9270 9690
 F 0 "U5" H 9270 9932 50  0000 C CNN
@@ -1562,7 +1502,7 @@ Wire Wire Line
 Wire Wire Line
 	8570 10290 9270 10290
 $Comp
-L Device:CP C5
+L IV9Numitron-rescue:CP-Device C5
 U 1 1 5FFF73E4
 P 9730 9980
 F 0 "C5" H 9848 10026 50  0000 L CNN
@@ -1581,7 +1521,7 @@ Wire Wire Line
 	9730 10130 9730 10290
 Connection ~ 9730 9690
 $Comp
-L Device:C C6
+L IV9Numitron-rescue:C-Device C6
 U 1 1 600787CF
 P 10170 9970
 F 0 "C6" H 10285 10016 50  0000 L CNN
@@ -1610,7 +1550,7 @@ Wire Wire Line
 Text Notes 8170 9180 0    100  ~ 0
 Controller Power supply
 $Comp
-L RF_Module:ESP-12E U6
+L IV9Numitron-rescue:ESP-12E-RF_Module U6
 U 1 1 601A57DA
 P 2200 1530
 F 0 "U6" H 2200 2511 50  0000 C CNN
@@ -1629,7 +1569,7 @@ Wire Wire Line
 Wire Wire Line
 	3410 2190 3410 2430
 $Comp
-L Device:R R6
+L IV9Numitron-rescue:R-Device R6
 U 1 1 602148D5
 P 3410 2580
 F 0 "R6" H 3480 2626 50  0000 L CNN
@@ -1640,7 +1580,7 @@ F 3 "~" H 3410 2580 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:C C7
+L IV9Numitron-rescue:C-Device C7
 U 1 1 6021523D
 P 3410 2940
 F 0 "C7" H 3525 2986 50  0000 L CNN
@@ -1653,7 +1593,7 @@ $EndComp
 Wire Wire Line
 	3410 2730 3410 2790
 $Comp
-L power:GND #PWR08
+L IV9Numitron-rescue:GND-power #PWR08
 U 1 1 602353A8
 P 3410 3150
 F 0 "#PWR08" H 3410 2900 50  0001 C CNN
@@ -1668,7 +1608,7 @@ Wire Wire Line
 Text Label 1300 1130 0    50   ~ 0
 EN
 $Comp
-L power:GND #PWR06
+L IV9Numitron-rescue:GND-power #PWR06
 U 1 1 60474591
 P 2200 2280
 F 0 "#PWR06" H 2200 2030 50  0001 C CNN
@@ -1715,7 +1655,7 @@ Wire Wire Line
 Text Label 2480 660  0    20   ~ 0
 3V3
 $Comp
-L Device:R R14
+L IV9Numitron-rescue:R-Device R14
 U 1 1 606CEE93
 P 6110 4830
 F 0 "R14" H 5910 4870 50  0000 L CNN
@@ -1737,7 +1677,7 @@ Connection ~ 5700 4600
 Wire Wire Line
 	5700 4600 5700 4900
 $Comp
-L Device:R R15
+L IV9Numitron-rescue:R-Device R15
 U 1 1 607A34B5
 P 6110 5190
 F 0 "R15" H 5900 5230 50  0000 L CNN
@@ -1766,7 +1706,7 @@ Connection ~ 6110 5010
 Wire Wire Line
 	6110 5010 6110 5040
 $Comp
-L Device:R R18
+L IV9Numitron-rescue:R-Device R18
 U 1 1 60839B4C
 P 1090 2900
 F 0 "R18" V 980 2970 50  0000 C CNN
@@ -1777,7 +1717,7 @@ F 3 "~" H 1090 2900 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R17
+L IV9Numitron-rescue:R-Device R17
 U 1 1 6083AC3C
 P 1090 2700
 F 0 "R17" V 980 2770 50  0000 C CNN
@@ -1788,7 +1728,7 @@ F 3 "~" H 1090 2700 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Device:R R16
+L IV9Numitron-rescue:R-Device R16
 U 1 1 6083B256
 P 1090 2500
 F 0 "R16" V 980 2570 50  0000 C CNN
@@ -1825,7 +1765,7 @@ EN
 Wire Wire Line
 	1240 2900 1350 2900
 $Comp
-L Device:R R19
+L IV9Numitron-rescue:R-Device R19
 U 1 1 6098E032
 P 1090 3110
 F 0 "R19" V 980 3180 50  0000 C CNN
@@ -1840,7 +1780,7 @@ Wire Wire Line
 Text Label 1350 3110 0    50   ~ 0
 GPIO15
 $Comp
-L power:GND #PWR0105
+L IV9Numitron-rescue:GND-power #PWR0105
 U 1 1 609B58A6
 P 830 3170
 F 0 "#PWR0105" H 830 2920 50  0001 C CNN
@@ -1955,4 +1895,57 @@ Wire Wire Line
 	2720 3220 2390 3220
 Wire Wire Line
 	2720 3320 2390 3320
+$Comp
+L NixieClockMaster:DS3231M-Timer_RTC U7
+U 1 1 6057ABE4
+P 5500 2550
+F 0 "U7" H 5500 2061 50  0000 C CNN
+F 1 "DS3231M-Timer_RTC" H 5500 1970 50  0000 C CNN
+F 2 "Package_SO:SOIC-16W_7.5x10.3mm_P1.27mm" H 5500 1950 50  0001 C CNN
+F 3 "" H 5770 2600 50  0001 C CNN
+	1    5500 2550
+	1    0    0    -1  
+$EndComp
+NoConn ~ 6000 2650
+Wire Wire Line
+	5500 2040 6500 2040
+Wire Wire Line
+	6500 2040 6500 2550
+Wire Wire Line
+	5400 2150 5400 1860
+Wire Wire Line
+	5400 1860 5500 1860
+Wire Wire Line
+	5500 1650 5500 1860
+Wire Wire Line
+	4360 2450 4700 2450
+Wire Wire Line
+	4700 1950 4700 2450
+Connection ~ 4700 2450
+Wire Wire Line
+	4700 2450 5000 2450
+Wire Wire Line
+	4360 2350 4550 2350
+Wire Wire Line
+	4550 1950 4550 2350
+Connection ~ 4550 2350
+Wire Wire Line
+	4550 2350 5000 2350
+NoConn ~ 5000 2750
+Wire Wire Line
+	5500 2040 5500 2150
+$Comp
+L NixieClockMaster:PWR_FLAG #FLG01
+U 1 1 6077C540
+P 6500 1950
+F 0 "#FLG01" H 6500 2215 50  0000 C CNN
+F 1 "PWR_FLAG" H 6500 2124 50  0000 C CNN
+F 2 "" H 6500 1950 50  0001 C CNN
+F 3 "" H 6500 1950 50  0001 C CNN
+	1    6500 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6500 1950 6500 2040
+Connection ~ 6500 2040
 $EndSCHEMATC

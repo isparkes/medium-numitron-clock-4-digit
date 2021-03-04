@@ -1,4 +1,4 @@
-247594243252621
+268603888390621
 NixieClockMaster
 2N7000_TO92
 TO 92
@@ -64,6 +64,13 @@ Arduino_Uno_Shield_NoICSP
 31
 NixieClockMaster
 BARREL_JACK
+DC Barrel Jack
+Power Jack
+0
+3
+3
+NixieClockMaster
+BARREL_JACK_Vertical
 DC Barrel Jack
 Power Jack
 0
@@ -294,6 +301,22 @@ socket strip
 8
 8
 NixieClockMaster
+GNP-7
+This is the footprint suitable for the following nixie tubes: <br>
+* Z570M <br>
+* Z5700M <br>
+* Z573M <br>
+* Z5730M <br>
+* Z574M <br>
+* Z5740M <br>
+<br>
+Tube diameter: 19mm<br>
+Height from PCB: 47.6mm
+
+0
+13
+13
+NixieClockMaster
 HVSMPS-34063
 
 
@@ -427,6 +450,13 @@ PIN HEADER
 4
 4
 NixieClockMaster
+Header_MA04-1_small
+PIN HEADER
+PIN HEADER
+0
+4
+4
+NixieClockMaster
 Header_MA05-1
 PIN HEADER
 PIN HEADER
@@ -512,8 +542,8 @@ MAY BE USED WITH SOCKET: U11
 11
 NixieClockMaster
 IN-8
-MAY BE USED WITH SOCKET: 11-PIN- RUSSIAN
-MAY BE USED WITH SOCKET: 11-PIN- RUSSIAN
+
+
 0
 11
 11
@@ -531,6 +561,13 @@ IN-8-2-Wide
 0
 12
 12
+NixieClockMaster
+IN-8-8331
+
+
+0
+11
+11
 NixieClockMaster
 IN-12
 MAY BE USED WITH SOCKET: SK-136
@@ -735,6 +772,13 @@ inductor taiyo-yuden nr smd
 2
 2
 NixieClockMaster
+M9S-1
+
+
+0
+12
+12
+NixieClockMaster
 MC34063_DIL8
 DUAL IN LINE PACKAGE
 DUAL IN LINE PACKAGE
@@ -798,6 +842,13 @@ NL840-RTS-14-DSUB
 14
 14
 NixieClockMaster
+OG4
+
+
+0
+8
+8
+NixieClockMaster
 Pin_Header_Straight_2x06_BottomMount
 Through hole pin header
 pin header
@@ -833,6 +884,13 @@ R-Long
 2
 2
 NixieClockMaster
+RTS-14-DSUB
+
+
+0
+14
+14
+NixieClockMaster
 R_2W
 Resistor, Axial_DIN0414 series, Axial, Horizontal, pin pitch=15.24mm, 2W, length*diameter=11.9*4.5mm^2, http://www.vishay.com/docs/20128/wkxwrx.pdf
 Resistor Axial_DIN0414 series Axial Horizontal pin pitch 15.24mm 2W length 11.9mm diameter 4.5mm
@@ -867,6 +925,20 @@ Resistor Axial_DIN0204 series Axial Horizontal pin pitch 7.62mm 0.167W length 3.
 0
 2
 2
+NixieClockMaster
+SK-116-1
+
+
+0
+11
+11
+NixieClockMaster
+SK-116-WireLeads
+
+
+0
+11
+11
 NixieClockMaster
 SOLDER-JUMPER
 
@@ -906,6 +978,13 @@ NixieClockMaster
 SW_Tactile_SPST_Angled_PTS645Vx31-2LFS
 tactile switch SPST right angle, PTS645VL31-2 LFS
 tactile switch SPST angled PTS645VL31-2 LFS C&K Button
+0
+4
+2
+NixieClockMaster
+SW_Tactile_Straight_KSA0Axx1LFTR
+SW PUSH SMALL http://www.ckswitches.com/media/1457/ksa_ksl.pdf
+SW PUSH SMALL Tactile C&K
 0
 4
 2
@@ -1057,79 +1136,122 @@ WeMos_D1_mini_board_simple
 16
 16
 NixieClockMaster
+Z566M Harwin H3161-1
+
+
+0
+13
+13
+NixieClockMaster
 Z570M
 This is the footprint suitable for the following nixie tubes: <br>
 * Z570M <br>
-0
-0
-0
+* Z5700M <br>
+* Z573M <br>
+* Z5730M <br>
 * Z574M <br>
 * Z5740M <br>
 <br>
 Tube diameter: 19mm<br>
+Height from PCB: 47.6mm
+
 0
-0
+13
+13
+NixieClockMaster
+Z570M-Narrow
+This is the footprint suitable for the following nixie tubes: <br>
+* Z570M <br>
+* Z5700M <br>
+* Z573M <br>
+* Z5730M <br>
+* Z574M <br>
+* Z5740M <br>
+<br>
+Tube diameter: 19mm<br>
+Height from PCB: 47.6mm
+
 0
 13
 13
 NixieClockMaster
 Z570M-NoDP
-0
-0
-0
+This is the footprint suitable for the following nixie tubes: <br>
+* Z570M <br>
+* Z5700M <br>
 * Z573M <br>
 * Z5730M <br>
 * Z574M <br>
 * Z5740M <br>
-0
-0
-0
+<br>
+Tube diameter: 19mm<br>
+Height from PCB: 47.6mm
 
 0
 11
 11
-0
-0
-0
+NixieClockMaster
+ZM1000R3
+
 
 0
 14
 14
+NixieClockMaster
+ZM1174_ZM1175
+This is the footprint suitable for the following nixie tubes: <br>
+* Z570M <br>
+* Z5700M <br>
+* Z573M <br>
+* Z5730M <br>
+* Z574M <br>
+* Z5740M <br>
+<br>
+Tube diameter: 19mm<br>
+Height from PCB: 47.6mm
+
 0
-0
-0
+13
+13
+NixieClockMaster
+nixies-us-IN-2-DSUB
+
 
 0
 11
 11
-0
-0
-0
+NixieClockMaster
+nixies-us-IN-2-DSUB-1mm1-pins
+
 
 0
 11
 11
-0
-0
-0
+NixieClockMaster
+nixies-us-IN-18
+MAY BE USED WITH SOCKET: PL31-P
 MAY BE USED WITH SOCKET: PL31-P
 0
 12
 12
-0
-0
-0
+NixieClockMaster
+optocoupler-DIL04
+DUAL IN LINE PACKAGE
 DUAL IN LINE PACKAGE
 0
 4
 4
-0
-0
-0
+NixieClockMaster
+rcl-C050-024X044
+CAPACITOR
 CAPACITOR
 0
 2
 2
+NixieClockMaster
+russian-nixies-IN-1
+MAY BE USED WITH SOCKET: U11
+MAY BE USED WITH SOCKET: U11
 0
-0
-0
+11
+11
