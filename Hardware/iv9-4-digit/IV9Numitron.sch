@@ -76,7 +76,7 @@ F 3 "~" H 8170 9990 50  0001 C CNN
 	1    8170 9990
 	1    0    0    -1  
 $EndComp
-Text Label 3200 930  2    50   ~ 0
+Text Label 3200 1130 2    50   ~ 0
 PIR
 Wire Wire Line
 	3200 1130 2800 1130
@@ -88,7 +88,7 @@ Wire Wire Line
 	2800 1430 3200 1430
 Wire Wire Line
 	2800 1230 3200 1230
-Text Label 3200 1130 2    50   ~ 0
+Text Label 3200 930  2    50   ~ 0
 BTN
 Text Label 3200 1330 2    50   ~ 0
 SDA
@@ -1555,7 +1555,7 @@ U 1 1 601A57DA
 P 2200 1530
 F 0 "U6" H 2200 2511 50  0000 C CNN
 F 1 "ESP-12E" H 2200 1550 50  0000 C CNN
-F 2 "RF_Module:ESP-12E" H 2200 1530 50  0001 C CNN
+F 2 "NixieClockMaster:ESP-12F_THT_NoFlash" H 2200 1530 50  0001 C CNN
 F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 1850 1630 50  0001 C CNN
 	1    2200 1530
 	1    0    0    -1  
@@ -1624,8 +1624,6 @@ Text Label 2870 1830 0    20   ~ 0
 GPIO15
 Text Label 2880 1130 0    20   ~ 0
 GPIO2
-Text Label 2820 930  0    50   ~ 0
-GPIO0
 NoConn ~ 1600 1530
 NoConn ~ 1600 1630
 NoConn ~ 1600 1930
@@ -1948,4 +1946,6 @@ $EndComp
 Wire Wire Line
 	6500 1950 6500 2040
 Connection ~ 6500 2040
+Text Label 2880 930  0    20   ~ 0
+GPIO0
 $EndSCHEMATC
