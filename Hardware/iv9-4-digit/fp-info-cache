@@ -1,4 +1,4 @@
-268603888390621
+311511278286621
 NixieClockMaster
 2N7000_TO92
 TO 92
@@ -63,6 +63,13 @@ Arduino_Uno_Shield_NoICSP
 32
 31
 NixieClockMaster
+B13B-GN4
+
+
+0
+13
+13
+NixieClockMaster
 BARREL_JACK
 DC Barrel Jack
 Power Jack
@@ -119,9 +126,30 @@ CAPACITOR
 2
 2
 NixieClockMaster
+CP_Elec_6.3x5.4
+SMD capacitor, aluminum electrolytic, Panasonic C55, 6.3x5.4mm
+capacitor electrolytic
+0
+2
+2
+NixieClockMaster
 CP_Elec_SMD_6.3x7.7
 SMT capacitor, aluminium electrolytic, 6.3x7.7
 
+0
+2
+2
+NixieClockMaster
+CP_Radial_D5.0mm_P2.00mm
+CP, Radial series, Radial, pin pitch=2.00mm, , diameter=5mm, Electrolytic Capacitor
+CP Radial series Radial pin pitch 2.00mm  diameter 5mm Electrolytic Capacitor
+0
+2
+2
+NixieClockMaster
+CP_Radial_D8.0mm_P3.50mm
+CP, Radial series, Radial, pin pitch=3.50mm, , diameter=8mm, Electrolytic Capacitor
+CP Radial series Radial pin pitch 3.50mm  diameter 8mm Electrolytic Capacitor
 0
 2
 2
@@ -252,6 +280,20 @@ DUAL IN LINE PACKAGE
 8
 8
 NixieClockMaster
+DS3231
+SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOIC SO
+0
+16
+16
+NixieClockMaster
+DS3231-NoPaste
+SOIC, 16 Pin (JEDEC MS-013AA, https://www.analog.com/media/en/package-pcb-resources/package/pkg_pdf/soic_wide-rw/rw_16.pdf), generated with kicad-footprint-generator ipc_gullwing_generator.py
+SOIC SO
+0
+16
+16
+NixieClockMaster
 Diode_DO-41_1N4001
 Diode, DO-41, SOD81, Horizontal, RM 10mm,
 Diode, DO-41, SOD81, Horizontal, RM 10mm, 1N4007, SB140,
@@ -294,6 +336,20 @@ Wi-Fi Module
 16
 16
 NixieClockMaster
+ESP32-WROOM-32
+Single 2.4 GHz Wi-Fi and Bluetooth combo chip https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf
+Single 2.4 GHz Wi-Fi and Bluetooth combo  chip
+0
+39
+39
+NixieClockMaster
+ESP32-WROOM-32-NoPaste
+Single 2.4 GHz Wi-Fi and Bluetooth combo chip https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32_datasheet_en.pdf
+Single 2.4 GHz Wi-Fi and Bluetooth combo  chip
+0
+39
+39
+NixieClockMaster
 ESP8266_2x04
 Through hole socket strip
 socket strip
@@ -318,6 +374,20 @@ Tube diameter: 19mm<br>
 13
 NixieClockMaster
 HVSMPS-34063
+0
+0
+0
+4
+4
+NixieClockMaster
+HVSMPS-34063-Bottom
+0
+0
+0
+4
+4
+NixieClockMaster
+HVSMPS-34063-Bottom-NoSS
 0
 0
 0
@@ -374,6 +444,13 @@ Header_MA02-2_RearMount
 4
 NixieClockMaster
 Header_MA02-6
+0
+0
+0
+12
+12
+NixieClockMaster
+Header_MA02-6-Back
 0
 0
 0
@@ -590,6 +667,13 @@ IN-12-Receptacle-paste
 12
 12
 NixieClockMaster
+IN-12-outline
+0
+0
+0
+0
+0
+NixieClockMaster
 IN-12_Wide
 0
 0
@@ -605,6 +689,13 @@ IN-14
 13
 NixieClockMaster
 IN-14_LargePads
+0
+0
+0
+13
+13
+NixieClockMaster
+IN-16
 0
 0
 0
@@ -645,6 +736,13 @@ IN-18-Small-Hole
 0
 11
 11
+NixieClockMaster
+IN-18-standoff-pins
+0
+0
+0
+12
+12
 NixieClockMaster
 IN14Centre_11.5mm
 0
@@ -752,6 +850,13 @@ LED_3MM
 2
 NixieClockMaster
 LED_APA106_Offset_Tighter
+0
+0
+0
+4
+4
+NixieClockMaster
+LED_APA106_Offset_Tighter_NoSS
 0
 0
 0
@@ -891,6 +996,13 @@ RTS-14-DSUB
 14
 14
 NixieClockMaster
+RZ568M_ZIN-70
+0
+0
+0
+11
+11
+NixieClockMaster
 R_2W
 0
 0
@@ -947,6 +1059,13 @@ SOLDER-JUMPER
 2
 2
 NixieClockMaster
+SOLDER-JUMPER-Bridged
+0
+0
+0
+2
+2
+NixieClockMaster
 SOLDER-JUMPER_2-WAY
 0
 0
@@ -975,6 +1094,13 @@ SOT-223
 4
 4
 NixieClockMaster
+SSOP-24_5.9x13.0mm_P1.00mm
+10
+0
+0
+24
+24
+NixieClockMaster
 SW_Tactile_SPST_Angled_PTS645Vx31-2LFS
 0
 0
@@ -987,6 +1113,20 @@ SW_Tactile_Straight_KSA0Axx1LFTR
 0
 0
 4
+2
+NixieClockMaster
+SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm
+0
+0
+0
+2
+2
+NixieClockMaster
+SolderJumper-2_P1.3mm_Open_Pad1.0x1.5mm_NoCtYd
+0
+0
+0
+2
 2
 NixieClockMaster
 TESTPAD_P1-13
@@ -1142,6 +1282,48 @@ Z566M Harwin H3161-1
 0
 13
 13
+NixieClockMaster
+Z568M_Delim
+0
+0
+0
+8
+8
+NixieClockMaster
+Z568M_Delim_Recep_v2
+0
+0
+0
+7
+7
+NixieClockMaster
+Z568M_Delim_Recep_v2_oval
+0
+0
+0
+7
+7
+NixieClockMaster
+Z568M_Delim_Recep_v3
+0
+0
+0
+7
+7
+NixieClockMaster
+Z568M_Delim_Recept
+0
+0
+0
+8
+8
+NixieClockMaster
+Z568M_Delim_v2
+0
+0
+0
+7
+7
 NixieClockMaster
 Z570M
 0
