@@ -19,7 +19,7 @@ U 1 1 5D147207
 P 9610 2520
 F 0 "N1" H 10110 2370 60  0000 L CNN
 F 1 "IV-9" V 10160 1820 60  0000 L CNN
-F 2 "NixieClockMaster:IV-9-splayed" H 9610 2520 60  0001 C CNN
+F 2 "NixieClockMaster:IV-9-splayed-receptacle" H 9610 2520 60  0001 C CNN
 F 3 "" H 9610 2520 60  0001 C CNN
 	1    9610 2520
 	0    -1   -1   0   
@@ -30,7 +30,7 @@ U 1 1 5D14C141
 P 11660 2520
 F 0 "N2" H 12160 2220 60  0000 L CNN
 F 1 "IV-9" V 12210 1720 60  0000 L CNN
-F 2 "NixieClockMaster:IV-9-splayed" H 11660 2520 60  0001 C CNN
+F 2 "NixieClockMaster:IV-9-splayed-receptacle" H 11660 2520 60  0001 C CNN
 F 3 "" H 11660 2520 60  0001 C CNN
 	1    11660 2520
 	0    -1   -1   0   
@@ -484,7 +484,7 @@ BLANK
 Text Label 1300 1330 0    50   ~ 0
 DLS
 Text Label 12960 3020 2    50   ~ 0
-3V8
+3V3
 Text Label 12960 3220 2    50   ~ 0
 DATA2
 Text Label 12960 3320 2    50   ~ 0
@@ -495,7 +495,7 @@ U 1 1 5D8C6621
 P 9660 5840
 F 0 "N3" H 10160 5690 60  0000 L CNN
 F 1 "IV-9" V 10210 5140 60  0000 L CNN
-F 2 "NixieClockMaster:IV-9-splayed" H 9660 5840 60  0001 C CNN
+F 2 "NixieClockMaster:IV-9-splayed-receptacle" H 9660 5840 60  0001 C CNN
 F 3 "" H 9660 5840 60  0001 C CNN
 	1    9660 5840
 	0    -1   -1   0   
@@ -528,13 +528,13 @@ U 1 1 5D95CF2E
 P 12110 5840
 F 0 "N4" H 12610 5690 60  0000 L CNN
 F 1 "IV-9" V 12660 5140 60  0000 L CNN
-F 2 "NixieClockMaster:IV-9-splayed" H 12110 5840 60  0001 C CNN
+F 2 "NixieClockMaster:IV-9-splayed-receptacle" H 12110 5840 60  0001 C CNN
 F 3 "" H 12110 5840 60  0001 C CNN
 	1    12110 5840
 	0    -1   -1   0   
 $EndComp
 Text Label 13410 6340 2    50   ~ 0
-3V8
+3V3
 Text Label 13410 6640 2    50   ~ 0
 BLANK
 $Comp
@@ -569,30 +569,6 @@ Connection ~ 6250 3000
 Wire Wire Line
 	6250 3000 6500 3000
 NoConn ~ 9510 5740
-$Comp
-L IV9Numitron-rescue:CP-Device C16
-U 1 1 5DBA8AD5
-P 2050 5850
-F 0 "C16" H 2168 5896 50  0000 L CNN
-F 1 "220uF" H 2168 5805 50  0000 L CNN
-F 2 "NixieClockMaster:CP_Elec_SMD_6.3x7.7" H 2088 5700 50  0001 C CNN
-F 3 "~" H 2050 5850 50  0001 C CNN
-	1    2050 5850
-	1    0    0    -1  
-$EndComp
-$Comp
-L IV9Numitron-rescue:GND-power #PWR09
-U 1 1 5DBA8C7F
-P 2050 6100
-F 0 "#PWR09" H 2050 5850 50  0001 C CNN
-F 1 "GND" H 2055 5927 50  0000 C CNN
-F 2 "" H 2050 6100 50  0001 C CNN
-F 3 "" H 2050 6100 50  0001 C CNN
-	1    2050 6100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2050 6000 2050 6100
 $Comp
 L IV9Numitron-rescue:+5V-power #PWR012
 U 1 1 5DC16C7B
@@ -630,30 +606,6 @@ F 3 "~" H 13110 3620 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	13110 3770 13110 3820
-Text Label 1700 5550 2    50   ~ 0
-3V8
-$Comp
-L IV9Numitron-rescue:1N4007-Diode D7
-U 1 1 5D47EDA0
-P 2050 5000
-F 0 "D7" V 2096 4921 50  0000 R CNN
-F 1 "DS14W" V 2005 4921 50  0000 R CNN
-F 2 "Diode_SMD:D_SOD-123F" H 2050 4825 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2050 5000 50  0001 C CNN
-	1    2050 5000
-	0    -1   -1   0   
-$EndComp
-$Comp
-L IV9Numitron-rescue:1N4007-Diode D8
-U 1 1 5D47EF73
-P 2050 5400
-F 0 "D8" V 2096 5321 50  0000 R CNN
-F 1 "DS14W" V 2005 5321 50  0000 R CNN
-F 2 "Diode_SMD:D_SOD-123F" H 2050 5225 50  0001 C CNN
-F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 2050 5400 50  0001 C CNN
-	1    2050 5400
-	0    -1   -1   0   
-$EndComp
 $Comp
 L Connector_Generic:Conn_01x02 J3
 U 1 1 5D24A6F0
@@ -673,34 +625,6 @@ Text Label 1950 7950 0    50   ~ 0
 GND
 Text Label 1950 7850 0    50   ~ 0
 5V
-Wire Wire Line
-	2050 5700 2050 5550
-Connection ~ 2050 5550
-Wire Wire Line
-	1800 4750 2050 4750
-Connection ~ 1800 4750
-Wire Wire Line
-	2050 5150 2050 5250
-Wire Wire Line
-	2050 4750 2050 4850
-Wire Wire Line
-	1700 5550 1850 5550
-$Comp
-L IV9Numitron-rescue:PWR_FLAG-NixieClockMaster-DA2000Numitron-rescue #FLG0101
-U 1 1 5D88DEC6
-P 1850 5450
-F 0 "#FLG0101" H 1850 5715 50  0000 C CNN
-F 1 "PWR_FLAG" H 1850 5624 50  0000 C CNN
-F 2 "" H 1850 5450 50  0001 C CNN
-F 3 "" H 1850 5450 50  0001 C CNN
-	1    1850 5450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1850 5450 1850 5550
-Connection ~ 1850 5550
-Wire Wire Line
-	1850 5550 2050 5550
 Wire Notes Line
 	7250 11200 7250 500 
 Wire Notes Line
@@ -754,40 +678,25 @@ $EndComp
 Wire Wire Line
 	5850 6850 5350 6850
 $Comp
-L Connector:TestPoint TP3
-U 1 1 5D8738F0
-P 5850 7050
-F 0 "TP3" V 5804 7238 50  0000 L CNN
-F 1 "TestPoint" V 5895 7238 50  0000 L CNN
-F 2 "NixieClockMaster:TESTPAD_P1-13" H 6050 7050 50  0001 C CNN
-F 3 "~" H 6050 7050 50  0001 C CNN
-	1    5850 7050
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	5850 7050 5350 7050
-$Comp
 L Connector:TestPoint TP4
 U 1 1 5D8738F7
-P 5850 7250
-F 0 "TP4" V 5804 7438 50  0000 L CNN
-F 1 "TestPoint" V 5895 7438 50  0000 L CNN
-F 2 "NixieClockMaster:TESTPAD_P1-13" H 6050 7250 50  0001 C CNN
-F 3 "~" H 6050 7250 50  0001 C CNN
-	1    5850 7250
+P 5850 7060
+F 0 "TP4" V 5804 7248 50  0000 L CNN
+F 1 "TestPoint" V 5895 7248 50  0000 L CNN
+F 2 "NixieClockMaster:TESTPAD_P1-13" H 6050 7060 50  0001 C CNN
+F 3 "~" H 6050 7060 50  0001 C CNN
+	1    5850 7060
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	5850 7250 5350 7250
+	5850 7060 5350 7060
 Text Label 5350 6650 0    50   ~ 0
 GND
 Text Label 5350 6850 0    50   ~ 0
 5V
-Text Label 5350 7050 0    50   ~ 0
-3V8
 Wire Notes Line
 	3850 3500 3850 450 
-Text Label 5350 7250 0    50   ~ 0
+Text Label 5350 7060 0    50   ~ 0
 3V3
 $Comp
 L Connector_Generic:Conn_01x08 J1
@@ -970,17 +879,6 @@ Wire Wire Line
 	10170 9690 10560 9690
 Text Notes 8170 9180 0    100  ~ 0
 Controller Power supply
-$Comp
-L IV9Numitron-rescue:ESP-12E-RF_Module U6
-U 1 1 601A57DA
-P 2200 1530
-F 0 "U6" H 2200 2511 50  0000 C CNN
-F 1 "ESP-12E" H 2200 1550 50  0000 C CNN
-F 2 "NixieClockMaster:ESP-12F_THT_NoFlash" H 2200 1530 50  0001 C CNN
-F 3 "http://wiki.ai-thinker.com/_media/esp8266/esp8266_series_modules_user_manual_v1.1.pdf" H 1850 1630 50  0001 C CNN
-	1    2200 1530
-	1    0    0    -1  
-$EndComp
 Text Label 1300 930  0    50   ~ 0
 RST
 Text Label 3230 2190 2    50   ~ 0
@@ -1045,12 +943,6 @@ Text Label 2870 1830 0    20   ~ 0
 GPIO15
 Text Label 2880 1130 0    20   ~ 0
 GPIO2
-NoConn ~ 1600 1530
-NoConn ~ 1600 1630
-NoConn ~ 1600 1930
-NoConn ~ 1600 2030
-NoConn ~ 1600 1730
-NoConn ~ 1600 1830
 Wire Wire Line
 	2800 1930 3210 1930
 Wire Wire Line
@@ -1265,17 +1157,6 @@ F 3 "~" H 13560 9610 50  0001 C CNN
 	1    13560 9610
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector_Generic:Conn_01x06 J5
-U 1 1 5FF36397
-P 2920 3020
-F 0 "J5" H 3000 3012 50  0000 L CNN
-F 1 "Program" H 3000 2921 50  0000 L CNN
-F 2 "NixieClockMaster:Header_MA06-1_SmallPads_NoSS" H 2920 3020 50  0001 C CNN
-F 3 "~" H 2920 3020 50  0001 C CNN
-	1    2920 3020
-	1    0    0    -1  
-$EndComp
 Text Label 2810 1230 0    20   ~ 0
 RX
 Text Label 2830 1030 0    20   ~ 0
@@ -1284,15 +1165,15 @@ Wire Wire Line
 	2800 1030 2830 1030
 Wire Wire Line
 	2720 2820 2390 2820
-Text Label 2390 2820 0    50   ~ 0
-RST
-Text Label 2390 2920 0    50   ~ 0
-TX
-Text Label 2390 3020 0    50   ~ 0
-RX
-Text Label 2390 3120 0    50   ~ 0
-3V3
 Text Label 2390 3220 0    50   ~ 0
+RST
+Text Label 2390 2820 0    50   ~ 0
+TX
+Text Label 2390 2920 0    50   ~ 0
+RX
+Text Label 2390 3020 0    50   ~ 0
+3V3
+Text Label 2390 3120 0    50   ~ 0
 GPIO0
 Text Label 2390 3320 0    50   ~ 0
 GND
@@ -1633,4 +1514,81 @@ Wire Wire Line
 Connection ~ 11670 6340
 Wire Wire Line
 	11670 6340 13410 6340
+$Comp
+L IV9Numitron-rescue:ESP-12E-RF_Module-NoFlash U6
+U 1 1 626BF53F
+P 2200 1530
+F 0 "U6" H 2200 2511 50  0000 C CNN
+F 1 "ESP-12E-RF_Module-NoFlash" H 2910 2320 50  0000 C CNN
+F 2 "RF_Module:ESP-12E" H 2200 1530 50  0001 C CNN
+F 3 "" H 1850 1630 50  0001 C CNN
+	1    2200 1530
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:TestPoint TP3
+U 1 1 626C7C0A
+P 2720 2820
+F 0 "TP3" V 2674 3008 50  0000 L CNN
+F 1 "TestPoint" V 2765 3008 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 2820 50  0001 C CNN
+F 3 "~" H 2920 2820 50  0001 C CNN
+	1    2720 2820
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP5
+U 1 1 626C83C7
+P 2720 2920
+F 0 "TP5" V 2674 3108 50  0000 L CNN
+F 1 "TestPoint" V 2765 3108 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 2920 50  0001 C CNN
+F 3 "~" H 2920 2920 50  0001 C CNN
+	1    2720 2920
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP6
+U 1 1 626C87DD
+P 2720 3020
+F 0 "TP6" V 2674 3208 50  0000 L CNN
+F 1 "TestPoint" V 2765 3208 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 3020 50  0001 C CNN
+F 3 "~" H 2920 3020 50  0001 C CNN
+	1    2720 3020
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP7
+U 1 1 626C9120
+P 2720 3120
+F 0 "TP7" V 2674 3308 50  0000 L CNN
+F 1 "TestPoint" V 2765 3308 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 3120 50  0001 C CNN
+F 3 "~" H 2920 3120 50  0001 C CNN
+	1    2720 3120
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP8
+U 1 1 626C9300
+P 2720 3220
+F 0 "TP8" V 2674 3408 50  0000 L CNN
+F 1 "TestPoint" V 2765 3408 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 3220 50  0001 C CNN
+F 3 "~" H 2920 3220 50  0001 C CNN
+	1    2720 3220
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:TestPoint TP9
+U 1 1 626C930A
+P 2720 3320
+F 0 "TP9" V 2674 3508 50  0000 L CNN
+F 1 "TestPoint" V 2765 3508 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_1.5x1.5mm" H 2920 3320 50  0001 C CNN
+F 3 "~" H 2920 3320 50  0001 C CNN
+	1    2720 3320
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
