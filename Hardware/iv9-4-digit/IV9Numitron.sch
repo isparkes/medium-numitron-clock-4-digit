@@ -192,29 +192,16 @@ Wire Wire Line
 	1750 7300 2100 7300
 Wire Wire Line
 	1750 7200 2100 7200
-Text Label 2100 7100 0    50   ~ 0
-5V
-Text Label 2100 7200 0    50   ~ 0
-PIR
 Text Label 2100 7300 0    50   ~ 0
+3V3
+Text Label 2100 6800 0    50   ~ 0
+PIR
+Text Label 2100 6900 0    50   ~ 0
 BTN
 Text Label 2100 7400 0    50   ~ 0
 GND
 Text Label 8820 9690 0    50   ~ 0
 5V
-Wire Wire Line
-	5500 1550 5500 1650
-$Comp
-L IV9Numitron-rescue:+5V-power #PWR016
-U 1 1 5D68B5B9
-P 5500 1550
-F 0 "#PWR016" H 5500 1400 50  0001 C CNN
-F 1 "+5V" H 5515 1723 50  0000 C CNN
-F 2 "" H 5500 1550 50  0001 C CNN
-F 3 "" H 5500 1550 50  0001 C CNN
-	1    5500 1550
-	1    0    0    -1  
-$EndComp
 $Comp
 L IV9Numitron-rescue:GND-power #PWR017
 U 1 1 5D68B5BF
@@ -717,9 +704,9 @@ Wire Wire Line
 	1750 6700 2100 6700
 Wire Wire Line
 	1750 7100 2100 7100
-Text Label 2100 6900 0    50   ~ 0
+Text Label 2100 7200 0    50   ~ 0
 SCL
-Text Label 2100 6800 0    50   ~ 0
+Text Label 2100 7100 0    50   ~ 0
 SDA
 NoConn ~ 11600 6540
 $Comp
@@ -849,7 +836,6 @@ Wire Wire Line
 Connection ~ 9270 10290
 Wire Wire Line
 	9730 10130 9730 10290
-Connection ~ 9730 9690
 $Comp
 L IV9Numitron-rescue:C-Device C6
 U 1 1 600787CF
@@ -870,13 +856,6 @@ Wire Wire Line
 	9730 10290 10170 10290
 Wire Wire Line
 	10170 9820 10170 9690
-Wire Wire Line
-	9730 9690 10170 9690
-Wire Wire Line
-	10170 9690 10180 9690
-Connection ~ 10170 9690
-Wire Wire Line
-	10170 9690 10560 9690
 Text Notes 8170 9180 0    100  ~ 0
 Controller Power supply
 Text Label 1300 930  0    50   ~ 0
@@ -1591,4 +1570,12 @@ F 3 "~" H 2920 3320 50  0001 C CNN
 	1    2720 3320
 	0    1    1    0   
 $EndComp
+Wire Wire Line
+	10560 9690 10170 9690
+Wire Wire Line
+	10170 9690 9730 9690
+Connection ~ 10170 9690
+Connection ~ 9730 9690
+Text Label 5260 1650 2    50   ~ 0
+3V3
 $EndSCHEMATC

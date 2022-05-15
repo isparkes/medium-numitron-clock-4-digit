@@ -1,4 +1,4 @@
-314812337977621
+311511278286621
 NixieClockMaster
 2N7000_TO92
 TO 92
@@ -321,13 +321,6 @@ Wi-Fi Module
 0
 22
 22
-NixieClockMaster
-ESP-12F-NoFlash
-Wi-Fi Module, http://wiki.ai-thinker.com/_media/esp8266/docs/aithinker_esp_12f_datasheet_en.pdf
-Wi-Fi Module
-0
-16
-16
 NixieClockMaster
 ESP-12F_THT
 Wi-Fi Module, http://wiki.ai-thinker.com/_media/esp8266/docs/aithinker_esp_12f_datasheet_en.pdf
@@ -780,13 +773,6 @@ IV-9
 9
 NixieClockMaster
 IV-9-splayed
-0
-0
-0
-9
-9
-NixieClockMaster
-IV-9-splayed-receptacle
 0
 0
 0
