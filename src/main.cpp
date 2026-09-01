@@ -54,6 +54,62 @@
 
 //**********************************************************************************
 //**********************************************************************************
+//*                            Forward Declarations                                *
+//**********************************************************************************
+//**********************************************************************************
+void newTimeUpdateReceived();
+void performOncePerSecondProcessing();
+void performOncePerMinuteProcessing();
+void performOncePerHourProcessing();
+void performOncePerDayProcessing();
+void setLeds();
+boolean checkPIR(unsigned long nowMillis);
+boolean checkPIRInstalled();
+void setNextMode(int displayMode);
+void processCurrentMode(int displayMode);
+void resetSecond();
+void incSecond();
+void incMins();
+void incHours();
+void incDays();
+void incMonths();
+void incYears();
+void setTimeFromServer(String timeString);
+bool processStatusMode(byte mode);
+boolean checkBlanking();
+String getPIRStateDisplay();
+boolean getHoursBlanked();
+void setTubesAndLEDSblankMode();
+void setPIRPullup(boolean newState);
+void setNewNextMode(int newNextMode);
+void setDiagnosticLED(byte stepNumber, byte state);
+boolean getOTAvailable();
+String getRTCTime(boolean setInternalTime);
+void testRTCTimeProvider();
+void setRTCTime();
+int getDimmingFromLDR();
+void factoryReset();
+void saveToSpiffsIfChanged(boolean changed);
+void rootPageHandler();
+void timeServerPageHandler();
+void resetPageHandler();
+void clockConfigPageHandler();
+void setDisplayValuePageHandler();
+void utilityPageHandler();
+void resetWiFiPageHandler();
+void ntpUpdatePageHandler();
+void factoryResetPageHandler();
+void debugPageHandler();
+void handleNotFound();
+void localCSSHandler();
+boolean getIsConnected();
+void configModeCallback(WiFiManager *myWiFiManager);
+void reconnectDroppedConnection();
+void setServerPageHandlers();
+void debugMsgLocal(String message);
+
+//**********************************************************************************
+//**********************************************************************************
 //*                                    Setup                                       *
 //**********************************************************************************
 //**********************************************************************************
@@ -1605,6 +1661,7 @@ bool processStatusMode(byte mode) {
         break;
       }
   }
+  return false;
 }
 
 // ************************************************************
@@ -1639,6 +1696,7 @@ boolean checkBlanking() {
         return true;
     }
   }
+  return false;
 }
 
 // ************************************************************
