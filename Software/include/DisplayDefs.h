@@ -19,7 +19,7 @@
 #define LED_ON              4
 #define LED_OFF             5
 #define LED_BLINK_DEFAULT   LED_RAILROAD
-#define LED_RAILROAD_X      -1 // Not yet implemented
+#define LED_RAILROAD_X      99 // Not yet implemented
 #define LED_MODE_MAX        5
 
 #define STATUS_LED_MODE_MIN    0

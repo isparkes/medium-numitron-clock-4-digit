@@ -54,8 +54,8 @@ pio run -t monitor           # serial monitor, 115200 baud
 ```
 
 There is **no filesystem image to upload**. Every web page is generated in C++ at request time
-(`HtmlServer.cpp` plus the page handlers in `main.cpp`), so SPIFFS holds only the two JSON files
-the clock writes itself. A fresh board comes up with a working web UI immediately after `upload`.
+(`HtmlServer.cpp` plus the page handlers in `main.cpp`), so the filesystem holds only the two JSON
+files the clock writes itself. A fresh board comes up with a working web UI immediately after `upload`.
 
 Build environment (`platformio.ini`):
 
@@ -64,7 +64,7 @@ Build environment (`platformio.ini`):
 | Platform / board | `espressif8266` / `d1_mini` |
 | Framework | `arduino` |
 | CPU | 160 MHz (`board_build.f_cpu`) |
-| Filesystem | SPIFFS — `/config.json` and `/stats.json` |
+| Filesystem | LittleFS — `/config.json` and `/stats.json` (migrated from SPIFFS on first boot) |
 | Monitor port | `/dev/cu.usbserial-110` (macOS; change for your adapter) |
 | Monitor speed | 115200 baud, RTS/DTR held off so opening the monitor does not reset the board |
 
@@ -104,7 +104,7 @@ indicator, since HTTP work steals refreshes.
 setup()
   OutputManager → NTP component → DebugManager → LEDManager
   → I2C (GPIO4/GPIO5) → button held at boot? → factory reset
-  → load /config.json from SPIFFS → optional factory test sequence
+  → migrate SPIFFS→LittleFS if needed → load /config.json → optional factory test
   → WiFiManager autoConnect (saved network → AP portal, password "SetMeUp!", 60 s timeout)
   → NTP (10 s retry window) → web server + /update + mDNS
   → PIR pull-up → RTC detect and seed → show version → load stats
@@ -149,7 +149,7 @@ default, so the corrected mapping is the one in force.
 | Main sketch | `main.cpp` (~2.8 kLOC) | Setup, main loop, mode state machine, button dispatch, all web page handlers |
 | Output manager | `OutputManagerNumi4.*` (~0.9 kLOC) | Singleton display buffer, segment tables, blank/blink/smooth/pre-heat, 32-bit shift out, PWM dimming |
 | LED manager | `LEDManager.*` | NeoPixel backlight and underlight strategies, gamma curve, LDR dimming, seconds pulse |
-| Config storage | `SPIFFS.*` | `/config.json` and `/stats.json` read/write, factory defaults |
+| Config storage | `SPIFFS.*` | `/config.json` and `/stats.json` read/write, factory defaults, one-time SPIFFS→LittleFS migration |
 | HTML server | `HtmlServer.*` | Bootstrap page scaffolding, form widgets, argument parsing, auth helpers |
 | NTP manager | `NtpAsync.*` | Async UDP NTP, POSIX TZ handling, update scheduling, millis-overflow handling |
 | RTC manager | `ESP_DS1307.*` | DS1307 over I2C, BCD conversion |
@@ -161,12 +161,17 @@ default, so the corrected mapping is the one in force.
 
 ### Configuration Storage
 
-All settings live in a single JSON document at `/config.json` on SPIFFS, loaded at boot into a
+All settings live in a single JSON document at `/config.json` on LittleFS, loaded at boot into a
 `spiffs_config_t` struct that the components hold a pointer to. The file is written when the
 settings menu times out, when the web UI posts a change, and on a factory reset — and only when a
 value actually changed, to limit flash wear. Running statistics (`uptimeMins`, `tubeOnTimeMins`)
 live separately in `/stats.json` and are flushed once per day, so a power cut loses at most a day
 of counting.
+
+The filesystem is **LittleFS**; SPIFFS is deprecated in the ESP8266 core. Both occupy the same
+flash region, so `SPIFFS_CLOCK::migrateFromSpiffs()` runs before anything else touches the
+filesystem: it mounts an old SPIFFS image, if one is there, and copies its contents across using
+the core's `FSTools`, so an existing clock keeps its settings and statistics across the upgrade.
 
 Holding the button while the board boots, or visiting `/factoryreset`, restores the defaults
 compiled into `ClockDefs.h`, `DisplayDefs.h`, `LEDManager.h` and `NtpAsync.h`. A factory reset also

@@ -1,5 +1,8 @@
 #include "SPIFFS.h"
 
+#include <LittleFS.h>
+#include <FSTools.h>
+
 //**********************************************************************************
 //**********************************************************************************
 //*                               SPIFFS functions                                 *
@@ -7,13 +10,55 @@
 //**********************************************************************************
 
 // ************************************************************
+// One-time migration of the filesystem from SPIFFS to LittleFS.
+//
+// SPIFFS is deprecated in the ESP8266 core. Both filesystems live in the
+// same flash region, so a board running an older build still holds its
+// /config.json and /stats.json in a SPIFFS image. This mounts that image
+// and copies it into a fresh LittleFS, so settings and statistics survive
+// the upgrade.
+//
+// MUST be called before any other filesystem access. Note that a plain
+// LittleFS.begin() auto-formats when the mount fails, which would throw the
+// old SPIFFS contents away - attemptToMountFS() deliberately does not.
+//
+// The layout has to match the linker script in use: eagle.flash.4m1m.ld,
+// 4M flash with a 1M filesystem. It needs changing if the flash layout does.
+// ************************************************************
+boolean SPIFFS_CLOCK::migrateFromSpiffs() {
+  FSTools fstools;
+  boolean migrated = false;
+
+  if (fstools.attemptToMountFS(LittleFS)) {
+    // LittleFS already owns the region, so there is nothing to migrate.
+    debugMsg("LittleFS found, no migration needed");
+    LittleFS.end();
+  } else if (fstools.mountAlternativeFS(FST::SPIFFS, FST::layout_4m1m, true)) {
+    debugMsg("Found a SPIFFS image, migrating it to LittleFS");
+    migrated = fstools.moveFS(LittleFS);
+    debugMsg(migrated ? "Migrated SPIFFS to LittleFS" : "SPIFFS to LittleFS migration FAILED");
+    LittleFS.end();
+  } else {
+    debugMsg("No existing filesystem found");
+  }
+
+  // attemptToMountFS() turned auto-format off so that a failed mount could not
+  // destroy an old SPIFFS image. Put it back now that we are past that point,
+  // so a board with no filesystem at all still formats itself on first use.
+  LittleFSConfig autoFormat(true);
+  LittleFS.setConfig(autoFormat);
+
+  return migrated;
+}
+
+// ************************************************************
 // Test SPIFFS
 // ************************************************************
 boolean SPIFFS_CLOCK::testMountSpiffs() {
   _spiffsMounted = false;
-  if (SPIFFS.begin()) {
+  if (LittleFS.begin()) {
     _spiffsMounted = true;
-    SPIFFS.end();
+    LittleFS.end();
   }
 
   return _spiffsMounted;
@@ -31,13 +76,13 @@ boolean SPIFFS_CLOCK::getSpiffsMounted() {
 // ************************************************************
 boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
   boolean loaded = false;
-  if (SPIFFS.begin()) {
+  if (LittleFS.begin()) {
     debugMsg("mounted file system config read");
     _spiffsMounted = true;
-    if (SPIFFS.exists("/config.json")) {
+    if (LittleFS.exists("/config.json")) {
       //file exists, reading and loading
       debugMsg("reading config file");
-      File configFile = SPIFFS.open("/config.json", "r");
+      File configFile = LittleFS.open("/config.json", "r");
       if (configFile) {
         debugMsg("opened config file");
         size_t size = configFile.size();
@@ -194,7 +239,7 @@ boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
     debugMsg("failed to mount FS");
   }
 
-  SPIFFS.end();
+  LittleFS.end();
   return loaded;
 }
 
@@ -202,7 +247,7 @@ boolean SPIFFS_CLOCK::getConfigFromSpiffs(spiffs_config_t* spiffs_config) {
 // Save config back to the SPIFFS
 // ************************************************************
 void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
-  if (SPIFFS.begin()) {
+  if (LittleFS.begin()) {
     debugMsg("mounted file system config write");
     _spiffsMounted = true;
 
@@ -252,7 +297,7 @@ void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
     json["doNotDimIndLEDs"] = spiffs_config->doNotDimIndLEDs;
     json["antiGhost"] = spiffs_config->antiGhost;
 
-    File configFile = SPIFFS.open("/config.json", "w");
+    File configFile = LittleFS.open("/config.json", "w");
     if (!configFile) {
       debugMsg("failed to open config file for writing");
       configFile.close();
@@ -269,7 +314,7 @@ void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
   } else {
     debugMsg("failed to mount FS");
   }
-  SPIFFS.end();
+  LittleFS.end();
 }
 
 // ************************************************************
@@ -277,13 +322,13 @@ void SPIFFS_CLOCK::saveConfigToSpiffs(spiffs_config_t* spiffs_config) {
 // ************************************************************
 boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
   boolean loaded = false;
-  if (SPIFFS.begin()) {
+  if (LittleFS.begin()) {
     debugMsg("mounted file system stats read");
     _spiffsMounted = true;
-    if (SPIFFS.exists("/stats.json")) {
+    if (LittleFS.exists("/stats.json")) {
       //file exists, reading and loading
       debugMsg("reading stats file");
-      File statsFile = SPIFFS.open("/stats.json", "r");
+      File statsFile = LittleFS.open("/stats.json", "r");
       if (statsFile) {
         debugMsg("opened stats file");
         size_t size = statsFile.size();
@@ -318,7 +363,7 @@ boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
     debugMsg("failed to mount FS");
   }
 
-  SPIFFS.end();
+  LittleFS.end();
   return loaded;
 }
 
@@ -326,7 +371,7 @@ boolean SPIFFS_CLOCK::getStatsFromSpiffs(spiffs_stats_t* spiffs_stats) {
 // Save the statistics back to the SPIFFS
 // ************************************************************
 void SPIFFS_CLOCK::saveStatsToSpiffs(spiffs_stats_t* spiffs_stats) {
-  if (SPIFFS.begin()) {
+  if (LittleFS.begin()) {
     debugMsg("mounted file system stats write");
     _spiffsMounted = true;
 
@@ -335,7 +380,7 @@ void SPIFFS_CLOCK::saveStatsToSpiffs(spiffs_stats_t* spiffs_stats) {
     json.set("uptime", spiffs_stats->uptimeMins);
     json.set("tubeontime", spiffs_stats->tubeOnTimeMins);
 
-    File statsFile = SPIFFS.open("/stats.json", "w");
+    File statsFile = LittleFS.open("/stats.json", "w");
     if (!statsFile) {
       debugMsg("failed to open stats file for writing");
       statsFile.close();
@@ -352,7 +397,7 @@ void SPIFFS_CLOCK::saveStatsToSpiffs(spiffs_stats_t* spiffs_stats) {
   } else {
     debugMsg("failed to mount FS");
   }
-  SPIFFS.end();
+  LittleFS.end();
 }
 
 // ************************************************************

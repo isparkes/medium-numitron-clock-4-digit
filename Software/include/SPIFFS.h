@@ -71,6 +71,7 @@ class SPIFFS_CLOCK
   public:
     void setDebugOutput(bool newDebug);
 
+    boolean migrateFromSpiffs();
     boolean testMountSpiffs();
     boolean getSpiffsMounted();
 

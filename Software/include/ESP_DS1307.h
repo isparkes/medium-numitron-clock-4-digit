@@ -44,6 +44,7 @@ private:
 
 // ----------------- Exported Variables ------------------
 
-static DS1307 Clock;   // RTC, uses Analogue pins A4 (SDA) and A5 (SCL)
+// RTC singleton, defined in ESP_DS1307.cpp
+extern DS1307 Clock;
 
 #endif

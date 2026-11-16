@@ -192,7 +192,7 @@ void OutputManager::smoothDigits(byte *digits, byte *prevNums, bool *smoothRun) 
         smoothStartMillis[i] = millis();
       }
       else {
-        if (millis() - smoothStartMillis[i] >= _tubeLag) {
+        if (millis() - smoothStartMillis[i] >= (unsigned long)_tubeLag) {
           prevNums[i] = _digit_buffer.numberArray[i];
           smoothRun[i] = false;
         }
@@ -206,7 +206,7 @@ void OutputManager::smoothDigits(byte *digits, byte *prevNums, bool *smoothRun) 
 // set the PWM Brighness
 // ************************************************************
 void OutputManager::setLDRValue(unsigned int newBrightness) {
-  if (_ldrValue != newBrightness) {
+  if (_ldrValue != (int)newBrightness) {
     _ldrValue = newBrightness;
     _tubeLag = (.000655 * pow(newBrightness, 2) + -.01159 * newBrightness + 148) / (6 - cc->preheatStrength);
   }

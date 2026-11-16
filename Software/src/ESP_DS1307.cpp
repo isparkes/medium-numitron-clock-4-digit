@@ -1,6 +1,9 @@
 #include <Wire.h>
 #include "ESP_DS1307.h"
 
+// RTC singleton, declared extern in ESP_DS1307.h
+DS1307 Clock;
+
 uint8_t DS1307::decToBcd(uint8_t val)
 {
     return ( (val/10*16) + (val%10) );

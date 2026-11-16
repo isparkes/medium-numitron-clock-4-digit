@@ -142,6 +142,10 @@ void setup()
   spiffs.setDebugCallback(dbcb);
   spiffs.setDebugOutput(debugVal);
 
+  // Must happen before anything touches the filesystem, including the
+  // factory reset below, which writes the config back out.
+  spiffs.migrateFromSpiffs();
+
   ledManager.setUp();
 
   setDiagnosticLED(DIAGS_START, STATUS_GREEN);
@@ -393,7 +397,7 @@ void loop()
 
   // -------------------------------------------------------------------------------
 
-  if (lastSecond != second()) {
+  if (lastSecond != static_cast<unsigned long>(second())) {
     lastSecond = second();
     lastSecMillis = nowMillis;
     secondsChanged = true;
@@ -1429,7 +1433,7 @@ void processCurrentMode(int displayMode) {
       }
     case MODE_SEP_DIM: {
         if (button1.isButtonPressedAndReleased()) {
-          current_config.separatorDimFactor = current_config.separatorDimFactor++;
+          current_config.separatorDimFactor++;
           if (current_config.separatorDimFactor > SEP_DIM_MAX) {
             current_config.separatorDimFactor = SEP_DIM_MIN;
           }
@@ -1440,7 +1444,7 @@ void processCurrentMode(int displayMode) {
       }
     case MODE_L_IND_MODE: {
         if (button1.isButtonPressedAndReleased()) {
-          current_config.statusModeL = current_config.statusModeL++;
+          current_config.statusModeL++;
           if (current_config.statusModeL > STATUS_LED_MODE_MAX) {
             current_config.statusModeL = STATUS_LED_MODE_MIN;
           }
@@ -1451,7 +1455,7 @@ void processCurrentMode(int displayMode) {
       }
     case MODE_R_IND_MODE: {
         if (button1.isButtonPressedAndReleased()) {
-          current_config.statusModeR = current_config.statusModeR++;
+          current_config.statusModeR++;
           if (current_config.statusModeR > STATUS_LED_MODE_MAX) {
             current_config.statusModeR = STATUS_LED_MODE_MIN;
           }
@@ -1828,8 +1832,8 @@ String getRTCTime(boolean setInternalTime) {
     byte mins = Clock.minute;
     byte secs = Clock.second;
 
-    char buf1[20];
-    sprintf(buf1, "%04d:%02d:%02d %02d:%02d:%02d", years, months, days, hours, mins, secs);
+    char buf1[32];
+    snprintf(buf1, sizeof(buf1), "%04d:%02d:%02d %02d:%02d:%02d", years, months, days, hours, mins, secs);
     String returnValue = String(buf1);
   
     debugManager.debugMsg("Got RTC time: " + returnValue);
@@ -1893,10 +1897,6 @@ int getDimmingFromLDR() {
     int rawSensorVal = rawLDR - current_config.thresholdBright;
 
     if (rawSensorVal < 0) rawSensorVal = 0;
-
-    float sensorFactor = (float) current_config.sensitivityLDR / 100.0;
-
-    float sensorVal = (float) rawSensorVal * sensorFactor;
 
     float sensorDiff = rawSensorVal - sensorLDRSmoothed;
     sensorLDRSmoothed += (sensorDiff / (float) current_config.sensorSmoothCountLDR);
@@ -2538,7 +2538,6 @@ void clockConfigPageHandler() {
 // ************************************************************
 void setDisplayValuePageHandler() {
   String resultMessage;
-  byte timeValue = 0xff;
 
   int valueToDisplay = 0;
   int valueTime = 0;
